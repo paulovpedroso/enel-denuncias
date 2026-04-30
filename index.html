@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enel × Blip — Denúncias Anônimas via WhatsApp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Blip palette */
+  --blip-blue:#1968F0;
+  --blip-blue-dark:#0C49B8;
+  --blip-blue-deep:#072F73;
+  --blip-blue-soft:#E8F0FE;
+  --blip-ink:#0B0B25;
+
+  /* Enel palette */
+  --enel-red:#E1000F;
+  --enel-red-dark:#A60008;
+  --enel-violet:#B91D8E;
+
+  /* WhatsApp */
+  --wa-green:#075E54;
+  --wa-green-light:#25D366;
+  --wa-bubble-out:#D9FDD3;
+  --wa-bubble-in:#FFFFFF;
+  --wa-bg:#E5DDD5;
+  --wa-bg-pattern:#ECE5DD;
+  --wa-text:#111B21;
+  --wa-text-muted:#667781;
+
+  /* Neutrals */
+  --bg:#F6F7FB;
+  --surface:#FFFFFF;
+  --border:#E6E8EF;
+  --ink:#0B0B25;
+  --ink-2:#3A3A55;
+  --ink-3:#6B6B82;
+  --shadow-sm: 0 1px 2px rgba(11,11,37,.06), 0 1px 3px rgba(11,11,37,.04);
+  --shadow-md: 0 6px 24px rgba(11,11,37,.08), 0 2px 6px rgba(11,11,37,.04);
+  --shadow-lg: 0 24px 60px rgba(11,11,37,.12), 0 4px 14px rgba(11,11,37,.06);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:'Lexend',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+
+/* ===== HEADER ===== */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:1320px;margin:0 auto;padding:14px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-mark{
+  width:42px;height:42px;border-radius:11px;
+  background:linear-gradient(135deg,var(--blip-blue) 0%,var(--blip-blue-dark) 100%);
+  display:grid;place-items:center;color:#fff;font-weight:700;font-size:18px;
+  box-shadow:0 6px 16px rgba(25,104,240,.35);
+}
+.brand-x{color:var(--ink-3);font-weight:300;font-size:18px}
+.brand-mark.enel{
+  background:linear-gradient(135deg,var(--enel-red) 0%,var(--enel-red-dark) 100%);
+  box-shadow:0 6px 16px rgba(225,0,15,.35);
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.15}
+.brand-text strong{font-size:14px;letter-spacing:.02em}
+.brand-text span{font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em}
+
+.topbar-meta{display:flex;align-items:center;gap:18px;font-size:12px;color:var(--ink-3)}
+.dot-live{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:99px;background:#E8FFEF;color:#0F9D58;font-weight:500}
+.dot-live::before{content:"";width:6px;height:6px;border-radius:50%;background:#0F9D58;box-shadow:0 0 0 0 rgba(15,157,88,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(15,157,88,.5)}70%{box-shadow:0 0 0 8px rgba(15,157,88,0)}100%{box-shadow:0 0 0 0 rgba(15,157,88,0)}}
+
+/* ===== TABS ===== */
+.tabs-wrap{
+  max-width:1320px;margin:0 auto;padding:24px 28px 0;
+}
+.tabs{
+  display:inline-flex;gap:4px;padding:5px;background:var(--surface);
+  border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-sm);
+}
+.tab-btn{
+  border:0;background:transparent;cursor:pointer;
+  padding:10px 20px;border-radius:10px;font-family:inherit;font-size:14px;font-weight:500;color:var(--ink-2);
+  display:inline-flex;align-items:center;gap:9px;transition:all .2s ease;
+}
+.tab-btn:hover{color:var(--ink)}
+.tab-btn.active{background:var(--blip-ink);color:#fff;box-shadow:0 4px 12px rgba(11,11,37,.18)}
+.tab-btn .tab-num{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  background:rgba(255,255,255,.18);padding:2px 7px;border-radius:5px;
+}
+.tab-btn:not(.active) .tab-num{background:#F0F1F6;color:var(--ink-3)}
+
+/* ===== PANELS ===== */
+.panel{display:none;max-width:1320px;margin:0 auto;padding:28px}
+.panel.active{display:block;animation:fadeIn .35s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ===== TAB 1 — PROJETO ===== */
+.hero{
+  position:relative;overflow:hidden;border-radius:24px;padding:54px 56px;
+  background:radial-gradient(140% 100% at 0% 0%,#0C49B8 0%,#072F73 60%,#040C24 100%);
+  color:#fff;box-shadow:var(--shadow-lg);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(60% 40% at 90% 110%,rgba(225,0,15,.45) 0%,transparent 60%),
+    radial-gradient(40% 30% at 100% 0%,rgba(25,104,240,.6) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;opacity:.08;
+  background-image:
+    linear-gradient(to right,rgba(255,255,255,.6) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(255,255,255,.6) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(to bottom right,#000 0%,transparent 80%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+.hero h1{
+  font-size:54px;line-height:1.05;font-weight:700;letter-spacing:-.02em;
+  margin:18px 0 16px;
+}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#FFB3B8 0%,#FF5C68 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:16px;line-height:1.6;color:rgba(255,255,255,.78);max-width:520px}
+.hero-side{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;padding:24px;backdrop-filter:blur(8px);
+}
+.hero-side h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px;font-weight:500}
+.hero-side ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.hero-side li{font-size:13px;color:rgba(255,255,255,.88);display:flex;gap:10px;align-items:flex-start;line-height:1.45}
+.hero-side li::before{
+  content:"";width:14px;height:14px;border-radius:4px;
+  background:linear-gradient(135deg,var(--blip-blue),var(--enel-red));
+  flex-shrink:0;margin-top:3px;
+}
+
+.section{margin-top:48px}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:22px;flex-wrap:wrap}
+.section-title{display:flex;flex-direction:column;gap:6px}
+.section-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blip-blue);font-weight:600;display:flex;align-items:center;gap:8px}
+.section-eyebrow::before{content:"";width:24px;height:1px;background:var(--blip-blue)}
+.section-title h2{font-size:32px;font-weight:700;letter-spacing:-.015em;line-height:1.15}
+.section-desc{font-size:14px;color:var(--ink-3);max-width:480px;line-height:1.55}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:22px;position:relative;overflow:hidden;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.kpi-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.kpi-card.accent-blip{border-top:3px solid var(--blip-blue)}
+.kpi-card.accent-enel{border-top:3px solid var(--enel-red)}
+.kpi-card.accent-green{border-top:3px solid #0F9D58}
+.kpi-card.accent-amber{border-top:3px solid #F4B400}
+.kpi-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:14px}
+.kpi-value{font-size:42px;font-weight:700;letter-spacing:-.02em;line-height:1;display:flex;align-items:baseline;gap:6px}
+.kpi-value .unit{font-size:18px;font-weight:500;color:var(--ink-3)}
+.kpi-sub{font-size:12px;color:var(--ink-3);margin-top:10px;line-height:1.45}
+.kpi-trend{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:600;color:#0F9D58;
+  padding:3px 7px;border-radius:6px;background:#E8FFEF;margin-top:12px;
+}
+.kpi-card .kpi-bg{
+  position:absolute;right:-30px;bottom:-30px;width:140px;height:140px;
+  border-radius:50%;background:radial-gradient(circle,currentColor,transparent 70%);
+  opacity:.05;pointer-events:none;
+}
+
+.split{display:grid;grid-template-columns:1.1fr 1fr;gap:24px}
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:18px;padding:28px;box-shadow:var(--shadow-sm);
+}
+.card h3{font-size:18px;font-weight:600;margin-bottom:6px;letter-spacing:-.01em}
+.card .card-eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:6px}
+.card p{font-size:14px;color:var(--ink-2);line-height:1.6;margin-bottom:14px}
+.bullet-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.bullet-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--ink-2);line-height:1.55}
+.bullet-list li .bl-num{
+  flex-shrink:0;width:22px;height:22px;border-radius:6px;
+  background:var(--blip-blue-soft);color:var(--blip-blue);
+  display:grid;place-items:center;font-size:11px;font-weight:700;
+  font-family:'JetBrains Mono',monospace;margin-top:1px;
+}
+.bullet-list li strong{color:var(--ink);font-weight:600}
+
+.qw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.qw-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:22px;position:relative;
+  transition:all .25s ease;
+}
+.qw-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--blip-blue)}
+.qw-icon{
+  width:38px;height:38px;border-radius:10px;
+  display:grid;place-items:center;margin-bottom:14px;
+  background:var(--blip-blue-soft);color:var(--blip-blue);
+}
+.qw-card h4{font-size:15px;font-weight:600;margin-bottom:6px}
+.qw-card p{font-size:13px;color:var(--ink-3);line-height:1.5}
+.qw-tag{
+  position:absolute;top:14px;right:14px;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  padding:3px 8px;border-radius:99px;
+}
+.qw-tag.fast{background:#E8FFEF;color:#0F9D58}
+.qw-tag.med{background:#FFF4DA;color:#B7791F}
+
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pillar{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:22px;position:relative;overflow:hidden;
+}
+.pillar::before{
+  content:attr(data-num);
+  position:absolute;right:-8px;top:-22px;
+  font-size:90px;font-weight:800;color:var(--bg);
+  font-family:'JetBrains Mono',monospace;line-height:1;
+  z-index:0;
+}
+.pillar > *{position:relative;z-index:1}
+.pillar h4{font-size:15px;font-weight:600;margin-bottom:10px;letter-spacing:-.005em}
+.pillar p{font-size:13px;color:var(--ink-3);line-height:1.5}
+
+.stages{
+  background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;
+}
+.stage-row{
+  display:grid;grid-template-columns:60px 1fr 1.2fr 220px;
+  gap:24px;align-items:center;padding:20px 24px;
+  border-bottom:1px solid var(--border);
+}
+.stage-row:last-child{border-bottom:0}
+.stage-row.head{background:#FAFAFC;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600;padding:12px 24px}
+.stage-num{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blip-blue),var(--blip-blue-dark));
+  color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px;
+  font-family:'JetBrains Mono',monospace;
+}
+.stage-name{font-weight:600;font-size:14px;color:var(--ink)}
+.stage-name span{display:block;font-size:11px;font-weight:500;color:var(--ink-3);margin-top:2px;letter-spacing:.06em;text-transform:uppercase}
+.stage-desc{font-size:13px;color:var(--ink-2);line-height:1.5}
+.stage-tools{display:flex;flex-wrap:wrap;gap:5px}
+.stage-tag{
+  font-size:11px;padding:4px 9px;border-radius:99px;
+  background:#F0F1F6;color:var(--ink-2);font-weight:500;
+  font-family:'JetBrains Mono',monospace;
+}
+
+.journey-nav{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;
+  background:var(--surface);padding:8px;border-radius:14px;border:1px solid var(--border);
+}
+.j-btn{
+  border:0;background:transparent;cursor:pointer;font-family:inherit;
+  padding:9px 16px;border-radius:9px;font-size:13px;font-weight:500;color:var(--ink-2);
+  display:inline-flex;align-items:center;gap:8px;transition:all .2s ease;
+}
+.j-btn:hover{background:#F4F5F9;color:var(--ink)}
+.j-btn.active{background:var(--blip-ink);color:#fff}
+.j-btn .j-num{
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;
+  width:18px;height:18px;border-radius:5px;display:grid;place-items:center;
+  background:rgba(255,255,255,.18);
+}
+.j-btn:not(.active) .j-num{background:#E6E8EF;color:var(--ink-3)}
+
+.journey-stage{display:none}
+.journey-stage.active{display:block;animation:fadeIn .35s ease}
+
+.journey-header{
+  display:grid;grid-template-columns:1fr 280px;gap:30px;
+  margin-bottom:28px;align-items:end;
+}
+.journey-h-left h2{font-size:30px;font-weight:700;letter-spacing:-.015em;line-height:1.1;margin-bottom:12px}
+.journey-h-left h2 .j-eyebrow{
+  display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--enel-red);font-weight:600;margin-bottom:8px;
+}
+.journey-h-left p{font-size:14px;color:var(--ink-3);line-height:1.6;max-width:560px}
+.journey-h-right{
+  background:linear-gradient(135deg,#FFEFEF 0%,#FFF8F8 100%);
+  border:1px solid #FBD9D9;border-radius:14px;padding:18px;
+}
+.journey-h-right h5{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--enel-red);font-weight:600;margin-bottom:8px}
+.journey-h-right p{font-size:12px;color:var(--ink-2);line-height:1.5}
+
+.phones{
+  display:flex;gap:24px;overflow-x:auto;padding:8px 4px 32px;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:thin;
+}
+.phones::-webkit-scrollbar{height:8px}
+.phones::-webkit-scrollbar-track{background:transparent}
+.phones::-webkit-scrollbar-thumb{background:#D1D4DD;border-radius:4px}
+
+.phone-frame{
+  flex-shrink:0;width:300px;scroll-snap-align:start;
+  display:flex;flex-direction:column;
+}
+.phone-step{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.phone-step .step-num{
+  width:22px;height:22px;border-radius:6px;
+  background:var(--blip-ink);color:#fff;
+  display:grid;place-items:center;font-size:10px;font-weight:700;
+  font-family:'JetBrains Mono',monospace;
+}
+.phone-caption{
+  font-size:13px;color:var(--ink);line-height:1.45;font-weight:500;margin-bottom:14px;
+}
+.phone{
+  width:300px;height:608px;
+  background:#0B0B25;
+  border-radius:38px;padding:10px;
+  box-shadow:0 24px 60px rgba(11,11,37,.18),0 6px 18px rgba(11,11,37,.1),inset 0 0 0 1px #2a2a3f;
+  position:relative;
+}
+.phone::before{
+  content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);
+  width:90px;height:22px;background:#0B0B25;border-radius:14px;z-index:5;
+}
+.phone-screen{
+  width:100%;height:100%;border-radius:30px;overflow:hidden;
+  display:flex;flex-direction:column;background:#ECE5DD;
+  position:relative;
+}
+.phone-status{
+  background:var(--wa-green);color:#fff;padding:30px 14px 6px;
+  display:flex;justify-content:space-between;font-size:10px;
+  font-family:'JetBrains Mono',monospace;align-items:flex-end;
+}
+.phone-status .time{font-weight:600}
+.phone-status .icons{display:flex;gap:5px;align-items:center;font-size:9px}
+
+.wa-header{
+  background:var(--wa-green);color:#fff;padding:6px 12px 10px;
+  display:flex;align-items:center;gap:10px;
+}
+.wa-back{font-size:18px;line-height:1;cursor:default}
+.wa-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--enel-red),var(--enel-red-dark));
+  display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff;
+  position:relative;flex-shrink:0;
+}
+.wa-avatar::after{
+  content:"";position:absolute;right:-2px;bottom:-2px;
+  width:11px;height:11px;border-radius:50%;
+  background:#25D366;border:2px solid var(--wa-green);
+}
+.wa-name{display:flex;flex-direction:column;line-height:1.2;flex:1;min-width:0}
+.wa-name strong{font-size:13.5px;font-weight:600}
+.wa-name span{font-size:10.5px;color:rgba(255,255,255,.78);display:flex;align-items:center;gap:4px}
+.wa-name span::before{content:"●";color:#7DEFA1;font-size:7px}
+.wa-actions{display:flex;gap:14px;color:rgba(255,255,255,.85);font-size:14px}
+.wa-actions svg{width:16px;height:16px}
+
+.wa-body{
+  flex:1;overflow-y:auto;padding:14px 10px;
+  background:
+    repeating-linear-gradient(0deg,transparent 0,transparent 30px,rgba(0,0,0,.02) 30px,rgba(0,0,0,.02) 31px),
+    repeating-linear-gradient(90deg,transparent 0,transparent 30px,rgba(0,0,0,.02) 30px,rgba(0,0,0,.02) 31px),
+    #ECE5DD;
+  display:flex;flex-direction:column;gap:6px;
+  scrollbar-width:none;
+}
+.wa-body::-webkit-scrollbar{display:none}
+
+.wa-date{
+  align-self:center;background:rgba(225,222,210,.92);
+  font-size:10.5px;color:var(--wa-text-muted);
+  padding:4px 10px;border-radius:8px;margin:4px 0 8px;
+  box-shadow:0 1px 1px rgba(0,0,0,.05);
+}
+
+.wa-bubble{
+  max-width:78%;padding:7px 10px 6px;border-radius:99px;
+  font-size:12.5px;line-height:1.4;color:var(--wa-text);
+  position:relative;box-shadow:0 1px 0.5px rgba(0,0,0,.08);
+  word-wrap:break-word;
+}
+.wa-bubble.in{background:var(--wa-bubble-in);align-self:flex-start;border-top-left-radius:0}
+.wa-bubble.out{background:var(--wa-bubble-out);align-self:flex-end;border-top-right-radius:0}
+.wa-bubble.in::before{
+  content:"";position:absolute;left:-6px;top:0;width:8px;height:13px;
+  background:var(--wa-bubble-in);clip-path:polygon(100% 0,100% 100%,0 0);
+}
+.wa-bubble.out::before{
+  content:"";position:absolute;right:-6px;top:0;width:8px;height:13px;
+  background:var(--wa-bubble-out);clip-path:polygon(0 0,100% 0,0 100%);
+}
+.wa-meta{
+  display:flex;justify-content:flex-end;align-items:center;gap:3px;
+  font-size:10px;color:var(--wa-text-muted);margin-top:2px;
+}
+.wa-meta .ticks{color:#34B7F1;font-weight:600;letter-spacing:-1px}
+
+.wa-bubble strong{font-weight:600}
+.wa-bubble em{font-style:normal;color:var(--wa-text-muted);font-size:11.5px}
+
+.wa-qr{
+  display:flex;flex-direction:column;gap:0;margin-top:5px;
+  border-top:1px solid #E0E0E0;
+}
+.wa-qr button{
+  border:0;background:transparent;width:100%;
+  padding:8px;font-family:inherit;font-size:12px;
+  color:#00A884;font-weight:500;cursor:pointer;
+  border-bottom:1px solid #E0E0E0;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.wa-qr button:last-child{border-bottom:0}
+
+.wa-list-btn{
+  margin-top:6px;padding:8px;
+  background:transparent;border:0;border-top:1px solid #E0E0E0;
+  width:calc(100% + 20px);margin-left:-10px;margin-right:-10px;margin-bottom:-6px;
+  font-family:inherit;font-size:12px;font-weight:500;
+  color:#00A884;display:flex;align-items:center;justify-content:center;gap:6px;
+  cursor:pointer;
+}
+
+.wa-media{
+  width:200px;border-radius:7px;overflow:hidden;margin-bottom:4px;
+  background:#cdd2d8;position:relative;
+}
+.wa-media-fake{
+  width:100%;height:140px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#3a4a5e 0%,#1f2937 100%);
+  color:rgba(255,255,255,.8);font-size:11px;
+  position:relative;overflow:hidden;
+}
+.wa-media-fake.poste{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.6)),
+    linear-gradient(180deg,#FFB347 0%,#FF6B6B 30%,#4A5568 100%);
+}
+.wa-media-fake.poste::before{
+  content:"";position:absolute;left:50%;top:20%;width:6px;height:75%;
+  background:#2D3748;transform:translateX(-50%);
+}
+.wa-media-fake.poste::after{
+  content:"";position:absolute;left:30%;top:25%;right:30%;height:3px;
+  background:#1A202C;
+}
+.wa-media-fake.localizacao{
+  background:linear-gradient(135deg,#A8E6CF 0%,#56C596 100%);
+}
+.wa-media-fake.localizacao::before{
+  content:"📍";position:absolute;font-size:38px;top:50%;left:50%;transform:translate(-50%,-60%);
+}
+.wa-media-fake.localizacao::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.3) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.3) 1px,transparent 1px);
+  background-size:18px 18px;mix-blend-mode:overlay;
+}
+
+.wa-audio{
+  display:flex;align-items:center;gap:8px;width:200px;
+  padding:4px 0;
+}
+.wa-audio-avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,var(--enel-red),var(--enel-red-dark));
+  display:grid;place-items:center;color:#fff;font-size:13px;font-weight:600;flex-shrink:0;
+}
+.wa-audio-wave{flex:1;height:24px;display:flex;align-items:center;gap:2px}
+.wa-audio-wave span{display:block;width:2px;background:#54656F;border-radius:2px}
+.wa-audio-wave span:nth-child(1){height:6px}
+.wa-audio-wave span:nth-child(2){height:14px}
+.wa-audio-wave span:nth-child(3){height:8px}
+.wa-audio-wave span:nth-child(4){height:18px}
+.wa-audio-wave span:nth-child(5){height:12px;background:#00A884}
+.wa-audio-wave span:nth-child(6){height:6px;background:#00A884}
+.wa-audio-wave span:nth-child(7){height:10px;background:#00A884}
+.wa-audio-wave span:nth-child(8){height:16px;background:#00A884}
+.wa-audio-wave span:nth-child(9){height:8px;background:#00A884}
+.wa-audio-wave span:nth-child(10){height:14px;background:#00A884}
+.wa-audio-wave span:nth-child(11){height:10px;background:#00A884}
+.wa-audio-wave span:nth-child(12){height:18px;background:#00A884}
+.wa-audio-wave span:nth-child(13){height:8px;background:#00A884}
+.wa-audio-wave span:nth-child(14){height:12px;background:#00A884}
+.wa-audio-time{font-size:10px;color:var(--wa-text-muted);margin-left:auto}
+
+.wa-flow-card{
+  background:#fff;border-radius:7px;padding:0;overflow:hidden;
+  margin:-7px -10px 4px;border-bottom:1px solid #E0E0E0;
+}
+.wa-flow-banner{
+  height:78px;background:
+    linear-gradient(135deg,rgba(225,0,15,.8) 0%,rgba(166,0,8,.8) 100%),
+    repeating-linear-gradient(45deg,#fff 0,#fff 10px,#FAFAFA 10px,#FAFAFA 20px);
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  flex-direction:column;gap:4px;
+}
+.wa-flow-banner svg{width:30px;height:30px}
+.wa-flow-banner span{font-size:11px;font-weight:600;letter-spacing:.05em}
+.wa-flow-content{padding:9px 10px}
+.wa-flow-content h5{font-size:12px;font-weight:600;color:var(--wa-text);margin-bottom:3px;line-height:1.3}
+.wa-flow-content p{font-size:11px;color:var(--wa-text-muted);line-height:1.4}
+
+.wa-footer{
+  padding:6px 8px;background:#F0F2F5;display:flex;align-items:center;gap:6px;
+}
+.wa-input{
+  flex:1;background:#fff;border-radius:18px;
+  padding:8px 12px;font-size:12px;color:var(--wa-text-muted);
+  display:flex;align-items:center;gap:8px;
+  box-shadow:0 1px 1px rgba(0,0,0,.05);
+}
+.wa-input svg{width:14px;height:14px;color:var(--wa-text-muted)}
+.wa-mic{
+  width:36px;height:36px;border-radius:50%;background:var(--wa-green);
+  display:grid;place-items:center;color:#fff;flex-shrink:0;
+  box-shadow:0 1px 2px rgba(0,0,0,.2);
+}
+.wa-mic svg{width:16px;height:16px}
+
+.arch{
+  background:linear-gradient(135deg,#0B0B25 0%,#1B1B47 100%);
+  border-radius:18px;padding:32px;color:#fff;position:relative;overflow:hidden;
+}
+.arch::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 0%,rgba(25,104,240,.3),transparent 50%),
+    radial-gradient(circle at 80% 100%,rgba(225,0,15,.2),transparent 50%);
+  pointer-events:none;
+}
+.arch-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:stretch;margin-top:20px;
+}
+.arch-node{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;padding:18px;
+  display:flex;flex-direction:column;gap:8px;
+  position:relative;
+}
+.arch-node .arch-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:rgba(25,104,240,.2);color:#7BA8FF;
+  display:grid;place-items:center;
+}
+.arch-node h5{font-size:13px;font-weight:600}
+.arch-node p{font-size:11px;color:rgba(255,255,255,.6);line-height:1.4}
+.arch-node:not(:last-child)::after{
+  content:"→";position:absolute;right:-12px;top:50%;
+  transform:translateY(-50%);color:rgba(255,255,255,.3);font-size:14px;
+  z-index:2;
+}
+.arch h3{font-size:22px;font-weight:600;letter-spacing:-.01em}
+.arch-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7BA8FF;font-weight:600;margin-bottom:6px}
+
+.footer{
+  margin:60px 0 30px;text-align:center;font-size:11px;color:var(--ink-3);
+  letter-spacing:.04em;
+}
+.footer .f-marks{display:inline-flex;gap:14px;align-items:center;margin-top:8px}
+.footer .f-marks span{padding:4px 10px;border:1px solid var(--border);border-radius:99px;background:#fff}
+
+@media (max-width: 1100px){
+  .hero-inner{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .pillars{grid-template-columns:repeat(2,1fr)}
+  .qw-grid{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+  .stage-row{grid-template-columns:50px 1fr;gap:12px}
+  .stage-row > div:nth-child(3),.stage-row > div:nth-child(4){grid-column:2}
+  .stage-row.head{display:none}
+  .arch-grid{grid-template-columns:repeat(2,1fr)}
+  .arch-node:not(:last-child)::after{display:none}
+  .journey-header{grid-template-columns:1fr}
+  .hero h1{font-size:38px}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">B</div>
+      <span class="brand-x">×</span>
+      <div class="brand-mark enel">E</div>
+      <div class="brand-text">
+        <strong>Enel × Blip</strong>
+        <span>Denúncias via WhatsApp · Brasil</span>
+      </div>
+    </div>
+    <div class="topbar-meta">
+      <span class="dot-live">Proposta v.1</span>
+      <span>Abr 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="tabs-wrap">
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="projeto" role="tab">
+      <span class="tab-num">01</span>Projeto &amp; KPIs
+    </button>
+    <button class="tab-btn" data-tab="jornadas" role="tab">
+      <span class="tab-num">02</span>Jornadas em WhatsApp
+    </button>
+  </div>
+</div>
+
+<section class="panel active" id="tab-projeto" role="tabpanel">
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Denúncia anônima, conduzida por <em>IA</em> dentro do WhatsApp.</h1>
+        <p>Substituímos um formulário web frio por uma jornada conversacional guiada por IA que coleta endereço exato, evidências em foto e áudio, e abre WhatsApp Flows quando precisa de estrutura — tudo no canal que o brasileiro já usa todos os dias.</p>
+      </div>
+      <div class="hero-side">
+        <h4>O que vamos provar</h4>
+        <ul>
+          <li>Aumentar volume de denúncias úteis (com geolocalização precisa)</li>
+          <li>Reduzir custo de captação vs. web e 0800</li>
+          <li>Garantir anonimato com rastreabilidade técnica para a operação</li>
+          <li>Sustentar a posição da Blip como plataforma central de IA da Enel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">
+        <span class="section-eyebrow">KPIs de sucesso</span>
+        <h2>As frentes que vamos medir junto com a Enel</h2>
+      </div>
+      <p class="section-desc">As métricas e baselines serão definidos em conjunto com o time da Enel a partir do discovery.</p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card accent-blip">
+        <div class="kpi-label">Volume de denúncias</div>
+        <div class="kpi-value" style="font-size:22px;font-weight:600;letter-spacing:-.005em;line-height:1.25">Crescimento sobre a base do canal web</div>
+        <div class="kpi-sub">Acompanhar quantas denúncias adicionais o canal WhatsApp gera em comparação com o fluxo web atual.</div>
+        <div class="kpi-trend">↗ Meta primária</div>
+      </div>
+      <div class="kpi-card accent-enel">
+        <div class="kpi-label">Taxa de conclusão</div>
+        <div class="kpi-value" style="font-size:22px;font-weight:600;letter-spacing:-.005em;line-height:1.25">Quem inicia e finaliza o registro</div>
+        <div class="kpi-sub">Percentual de usuários que entram no fluxo e enviam ao menos endereço + descrição.</div>
+        <div class="kpi-trend">↗ Engajamento</div>
+      </div>
+      <div class="kpi-card accent-green">
+        <div class="kpi-label">Custo por denúncia</div>
+        <div class="kpi-value" style="font-size:22px;font-weight:600;letter-spacing:-.005em;line-height:1.25">Eficiência vs. canais atuais</div>
+        <div class="kpi-sub">Comparativo de custo por denúncia processada entre WhatsApp, formulário web e 0800.</div>
+        <div class="kpi-trend">↗ Economia operacional</div>
+      </div>
+      <div class="kpi-card accent-amber">
+        <div class="kpi-label">Qualidade do dado</div>
+        <div class="kpi-value" style="font-size:22px;font-weight:600;letter-spacing:-.005em;line-height:1.25">Precisão da geolocalização</div>
+        <div class="kpi-sub">Percentual de denúncias com endereço estruturado comparado ao baseline do canal web.</div>
+        <div class="kpi-trend">↗ Qualidade do dado</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">
+        <span class="section-eyebrow">Visão geral</span>
+        <h2>O caso de uso, em uma frase</h2>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="card">
+        <span class="card-eyebrow">Contexto</span>
+        <h3>Hoje a Enel recebe denúncias de furto de energia por um formulário web e um 0800 — ambos com fricção alta e dados imprecisos.</h3>
+        <p>O patrocínio da iniciativa vem da alta liderança. O objetivo declarado é colocar IA conversacional para conduzir o usuário pergunta a pergunta dentro do WhatsApp.</p>
+        <ul class="bullet-list">
+          <li><span class="bl-num">01</span><span><strong>Integração com processos atuais —</strong> fluxo baseado no formulário padrão Enel.</span></li>
+          <li><span class="bl-num">02</span><span><strong>Coleta de dados precisos —</strong> a IA exige localização exata e ponto de referência.</span></li>
+          <li><span class="bl-num">03</span><span><strong>Captura de evidências —</strong> uso de imagens e áudio da ocorrência.</span></li>
+          <li><span class="bl-num">04</span><span><strong>Anonimato garantido —</strong> contato e identidade não são exigidos.</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="card-eyebrow">Por que agora</span>
+        <h3>A base instalada do canal Enel já viabiliza essa jornada — sem nova adoção, sem nova infraestrutura.</h3>
+        <p>Em 2025 o canal alcançou 5,4 milhões de usuários ativos (36% da base de clientes), com 605M mensagens trocadas e 72% de resolutividade.</p>
+        <ul class="bullet-list">
+          <li><span class="bl-num">↳</span><span>Plataforma estável, comprovada em crisis management (corte de energia)</span></li>
+          <li><span class="bl-num">↳</span><span>Cases de PIX (+1MM códigos, R$ 900K saving) e Ligação Nova (+700K solicitações) já validaram o canal para fluxos transacionais críticos</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">
+        <span class="section-eyebrow">Pilares de entrega</span>
+        <h2>Os quatro vetores principais</h2>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar" data-num="01">
+        <h4>Consolidação do canal</h4>
+        <p>Trazer a denúncia anônima para dentro do WhatsApp, no mesmo bot da Elena.</p>
+      </div>
+      <div class="pillar" data-num="02">
+        <h4>Experiência do usuário</h4>
+        <p>IA que conduz, não interroga. Aceita texto, foto, vídeo, áudio e localização.</p>
+      </div>
+      <div class="pillar" data-num="03">
+        <h4>Estabilidade & governança</h4>
+        <p>Anonimato técnico real, LGPD by design e monitoramento 24/7.</p>
+      </div>
+      <div class="pillar" data-num="04">
+        <h4>Resultado para o negócio</h4>
+        <p>Mais denúncias úteis e dado mais limpo para a operação técnica.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="stages">
+      <div class="stage-row head">
+        <div>#</div><div>Etapa</div><div>O que acontece</div><div>Componentes Blip</div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">01</div>
+        <div class="stage-name">Entrada<span>Acolhimento + LGPD</span></div>
+        <div class="stage-desc">Início da conversa com reforço de anonimato e consentimento legal.</div>
+        <div class="stage-tools"><span class="stage-tag">NLP Studio</span></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">02</div>
+        <div class="stage-name">Triagem<span>Tipo de ocorrência</span></div>
+        <div class="stage-desc">Identificação automática da irregularidade (gato, risco na rede, etc).</div>
+        <div class="stage-tools"><span class="stage-tag">LLM</span></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">03</div>
+        <div class="stage-name">Localização<span>Endereço + Ref.</span></div>
+        <div class="stage-desc">Coleta via WA Flows ou GPS nativo com insistência em ponto de referência.</div>
+        <div class="stage-tools"><span class="stage-tag">WA Flows</span></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">04</div>
+        <div class="stage-name">Descrição<span>Detalhes</span></div>
+        <div class="stage-desc">Transcrição de áudio ou texto sumarizado pela inteligência artificial.</div>
+        <div class="stage-tools"><span class="stage-tag">Speech-to-Text</span></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">05</div>
+        <div class="stage-name">Evidências<span>Mídia</span></div>
+        <div class="stage-desc">Recepção de fotos e vídeos para comprovação técnica.</div>
+        <div class="stage-tools"><span class="stage-tag">Studio Flow</span></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">06</div>
+        <div class="stage-name">Confirmação<span>Protocolo</span></div>
+        <div class="stage-desc">Geração de protocolo único sem armazenamento de dados pessoais.</div>
+        <div class="stage-tools"><span class="stage-tag">Protocol API</span></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">07</div>
+        <div class="stage-name">Acompanhamento<span>Status</span></div>
+        <div class="stage-desc">Consulta proativa de andamento pela base de protocolo.</div>
+        <div class="stage-tools"><span class="stage-tag">Status API</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Proposta confidencial Blip × Enel · Abr 2026
+    <br><span class="f-marks"><span>Blip Studio</span><span>WhatsApp Business Platform</span><span>LGPD by design</span></span>
+  </div>
+</section>
+
+<section class="panel" id="tab-jornadas" role="tabpanel">
+  <div class="section-head">
+    <div class="section-title">
+      <span class="section-eyebrow">Mockups navegáveis</span>
+      <h2>Como o usuário denuncia, passo a passo</h2>
+    </div>
+  </div>
+
+  <div class="journey-nav">
+    <button class="j-btn active" data-journey="j1"><span class="j-num">01</span>Triagem</button>
+    <button class="j-btn" data-journey="j2"><span class="j-num">02</span>Localização</button>
+    <button class="j-btn" data-journey="j3"><span class="j-num">03</span>Anonimato</button>
+    <button class="j-btn" data-journey="j4"><span class="j-num">04</span>Áudio</button>
+    <button class="j-btn" data-journey="j5"><span class="j-num">05</span>Flows</button>
+    <button class="j-btn" data-journey="j6"><span class="j-num">06</span>Status</button>
+    <button class="j-btn" data-journey="j7"><span class="j-num">07</span>Retenção</button>
+  </div>
+
+  <div class="journey-stage active" id="j1">
+    <div class="phones">
+      <div class="phone-frame">
+        <div class="phone-step"><span class="step-num">1</span>Boas-vindas</div>
+        <div class="phone"><div class="phone-screen">
+          <div class="phone-status"><span class="time">9:41</span><span class="icons">5G ⏷ 87%</span></div>
+          <div class="wa-header">
+            <span class="wa-back">‹</span>
+            <div class="wa-avatar">EN</div>
+            <div class="wa-name"><strong>Enel — Denúncia</strong><span>online</span></div>
+          </div>
+          <div class="wa-body">
+            <div class="wa-date">Hoje</div>
+            <div class="wa-bubble in">Olá! 👋 Sua denúncia é <strong>100% anônima</strong>. Não vou pedir seus dados pessoais.<div class="wa-meta">9:40</div></div>
+            <div class="wa-bubble in">Me conte: <strong>o que você quer denunciar?</strong>
+              <div class="wa-qr">
+                <button>⚡ Furto de energia (gato)</button>
+                <button>⚠️ Risco na rede elétrica</button>
+                <button>🏠 Outra irregularidade</button>
+              </div>
+              <div class="wa-meta">9:40</div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+      <div class="phone-frame">
+        <div class="phone-step"><span class="step-num">2</span>Resposta Livre</div>
+        <div class="phone"><div class="phone-screen">
+          <div class="phone-status"><span class="time">9:41</span><span class="icons">5G ⏷ 87%</span></div>
+          <div class="wa-header"><span class="wa-back">‹</span><div class="wa-avatar">EN</div><div class="wa-name"><strong>Enel — Denúncia</strong></div></div>
+          <div class="wa-body">
+            <div class="wa-bubble out">Tem um vizinho puxando fio direto do poste.<div class="wa-meta">9:41 <span class="ticks">✓✓</span></div></div>
+            <div class="wa-bubble in">Entendi. Isso parece ser <strong>furto de energia</strong>. Vou registrar agora os detalhes.<div class="wa-meta">9:41</div></div>
+          </div>
