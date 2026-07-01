@@ -254,7 +254,7 @@ html,body{font-family:'Lexend',sans-serif;background:var(--bg);color:var(--ink);
   background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;
 }
 .stage-row{
-  display:grid;grid-template-columns:60px 1fr 1.2fr 220px;
+  display:grid;grid-template-columns:60px 1fr 1.4fr;
   gap:24px;align-items:center;padding:20px 24px;
   border-bottom:1px solid var(--border);
 }
@@ -904,6 +904,89 @@ h1,h2{letter-spacing:-.03em}
 /* section descriptions lighter */
 .section-desc{color:var(--ink-3)}
 
+
+/* responsáveis no banner */
+.hero-resp{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;align-items:center;gap:16px 34px;position:relative;z-index:2}
+.hero-resp .hr-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#7FB6E8}
+.hero-resp .hr-people{display:flex;flex-wrap:wrap;gap:14px 28px}
+.hero-resp .hr-person{display:flex;align-items:center;gap:11px}
+.hero-resp .hr-ava{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#0096FA,#0A4DA2);display:grid;place-items:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.hero-resp .hr-meta{display:flex;flex-direction:column;line-height:1.25}
+.hero-resp .hr-meta strong{font-size:14px;color:#fff;font-weight:600}
+.hero-resp .hr-meta span{font-size:11.5px;color:#aeb9c8;font-weight:300}
+
+
+/* ===== CALCULADORA (aba 04) ===== */
+.calc{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;box-shadow:var(--shadow-sm)}
+.calc-inputs{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.calc-group{background:var(--paper-2,#F4F7FB);border:1px solid var(--border);border-radius:14px;padding:20px}
+.cg-head{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.cg-fixed{font-size:12px;color:var(--ink-3);margin-bottom:14px}
+.cg-fixed strong{color:var(--blip-blue)}
+.cg-row{display:grid;grid-template-columns:1fr 120px 64px;align-items:center;gap:12px;padding:9px 0}
+.cg-row>span{font-size:13px;color:var(--ink-2)}
+.cg-row>b{font-size:15px;font-weight:700;color:var(--blip-blue);text-align:right;font-variant-numeric:tabular-nums}
+.calc input[type=range]{-webkit-appearance:none;appearance:none;height:4px;border-radius:4px;background:#D8E3F2;outline:none}
+.calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--blip-blue);cursor:pointer;box-shadow:0 2px 6px rgba(0,150,250,.4)}
+.calc input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radius:50%;background:var(--blip-blue);cursor:pointer}
+.calc-result{background:linear-gradient(135deg,#EAF2FD,#F4F8FE);border:1px solid #CFE2F8;border-radius:16px;padding:26px 28px;margin-bottom:22px}
+.cr-eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.cr-main{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:14px}
+.cr-lbl{font-size:13px;color:var(--ink-2);display:block;margin-bottom:6px}
+.cr-big{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--blip-blue);font-variant-numeric:tabular-nums}
+.cr-pill{display:inline-block;margin-top:10px;font-size:12px;font-weight:600;color:var(--blip-blue-dark);background:#fff;border:1px solid #CFE2F8;padding:5px 11px;border-radius:99px}
+.cr-range{display:inline-block;margin-top:10px;font-size:11.5px;color:var(--ink-3)}
+.calc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.cstat{background:var(--paper-2,#F4F7FB);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center}
+.cs-lbl{font-size:11.5px;color:var(--ink-3);display:block;margin-bottom:8px;line-height:1.3}
+.cs-num{font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.cs-num.accent{color:var(--blip-blue)}
+.cs-foot{font-size:11px;color:var(--ink-3);display:block;margin-top:6px}
+.calc-bars{padding:6px 2px 2px}
+.cb-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
+.cb-row{display:grid;grid-template-columns:64px 1fr 90px;align-items:center;gap:14px;margin-bottom:10px}
+.cb-lbl{font-size:13px;color:var(--ink-2);font-weight:500}
+.cb-track{height:14px;background:#ECEFF4;border-radius:8px;overflow:hidden}
+.cb-fill{height:100%;border-radius:8px;transition:width .35s ease}
+.cb-fill.before{background:#9AA6BC}
+.cb-fill.after{background:linear-gradient(90deg,var(--blip-blue),var(--blip-blue-dark))}
+.cb-val{font-size:13px;font-weight:600;color:var(--ink-2);text-align:right;font-variant-numeric:tabular-nums}
+.calc-note{margin-top:18px;font-size:12px;font-style:italic;color:var(--ink-3);line-height:1.5}
+
+/* próximos passos */
+.steps-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px}
+.step-card{display:flex;gap:16px;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px}
+.step-n{flex-shrink:0;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--blip-blue),var(--blip-blue-deep));color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
+.step-body h4{font-size:16px;font-weight:700;margin:2px 0 6px;letter-spacing:-.01em}
+.step-body p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+
+/* dois CTAs lado a lado */
+.cta-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cta-box{position:relative;overflow:hidden;border-radius:20px;padding:30px;color:#fff;
+  background:radial-gradient(620px 320px at 0 0,rgba(0,150,250,.20),transparent 60%),#070A0F;
+  border:1px solid rgba(0,150,250,.25)}
+.cta-box.demo{background:radial-gradient(620px 320px at 100% 0,rgba(0,150,250,.20),transparent 60%),#070A0F}
+.cta-box .cta-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#7FB6E8;margin-bottom:12px}
+.cta-box .cta-eyebrow.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#7FB6E8;animation:pulse 2s infinite}
+.cta-box h3{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:0 0 8px;color:#fff}
+.cta-box p{font-size:13.5px;font-weight:300;line-height:1.55;color:#aeb9c8;margin:0 0 16px}
+.cta-box .cta-person{display:flex;align-items:center;gap:11px;margin-bottom:18px}
+.cta-box .cta-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:auto}
+.cta-qr-sm{width:104px;height:104px;background:#fff;border-radius:12px;padding:8px;flex-shrink:0}
+.cta-qr-sm svg{width:100%;height:100%;display:block}
+
+@media (max-width:880px){
+  .calc-inputs,.cr-main,.cta-2,.steps-2{grid-template-columns:1fr}
+  .calc-stats{grid-template-columns:1fr 1fr}
+}
+
+.asis-hero-side li{font-size:15px;line-height:1.55}
+.phase-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cta-box{display:flex;flex-direction:column}
+.ph-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.ph-badge{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,var(--blip-blue),var(--blip-blue-deep));padding:6px 12px;border-radius:8px}
+.phase-box .cta-eyebrow{margin-bottom:0}
+@media (max-width:880px){.phase-2{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="locked">
@@ -935,8 +1018,8 @@ h1,h2{letter-spacing:-.03em}
       </div>
     </div>
     <div class="topbar-meta">
-      <span class="dot-live">Proposta v.1</span>
-      <span>Abr 2026</span>
+      <span class="dot-live">Demo</span>
+      <span>Julho 2026</span>
     </div>
   </div>
 </header>
@@ -952,6 +1035,9 @@ h1,h2{letter-spacing:-.03em}
     </button>
     <button class="tab-btn" data-tab="jornadas" role="tab">
       <span class="tab-num">03</span>A Jornada no WhatsApp
+    </button>
+    <button class="tab-btn" data-tab="conclusao" role="tab">
+      <span class="tab-num">04</span>Próximos Passos
     </button>
   </div>
 </div>
@@ -970,6 +1056,7 @@ h1,h2{letter-spacing:-.03em}
       <div>
         <span class="asis-tag"><span class="tag-dot"></span>Cenário atual · As-Is</span>
         <h1>Hoje, a denúncia de fraude segue <em>fluxos distintos</em> em cada distribuidora.</h1>
+        <p>Este material analisa os pontos de melhoria da jornada de denúncia atual da Enel nas diferentes regiões e dimensiona os ganhos de evoluí-la para uma jornada agêntica no WhatsApp — padronizada, conduzida por IA conversacional e integrada à operação.</p>
         <p>Um retrato do processo atual em Ceará, Rio de Janeiro e São Paulo: formulários web sem padrão entre as distribuidoras, campos de texto livre sem validação e ausência de retorno ao denunciante — o que reduz a precisão dos dados que chegam à operação.</p>
       </div>
       <div class="asis-hero-side">
@@ -982,6 +1069,13 @@ h1,h2{letter-spacing:-.03em}
         </ul>
       </div>
     </div>
+    <div class="hero-resp">
+      <span class="hr-label">Responsáveis Blip</span>
+      <div class="hr-people">
+        <div class="hr-person"><span class="hr-ava">LG</span><div class="hr-meta"><strong>Luis Granzioli</strong><span>Executivo de Contas</span></div></div>
+        <div class="hr-person"><span class="hr-ava">PP</span><div class="hr-meta"><strong>Paulo Pedroso</strong><span>Solutions Expert</span></div></div>
+      </div>
+    </div>
   </div>
 
   <!-- STAT STRIP -->
@@ -990,7 +1084,7 @@ h1,h2{letter-spacing:-.03em}
       <div class="stat"><div class="stat-num">~43<span>/dia</span></div><div class="stat-lbl">denúncias por DX, vindas de App, Site, Loja e Call Center</div></div>
       <div class="stat"><div class="stat-num">3<span>DXs</span></div><div class="stat-lbl">CE, RJ e SP — cada uma com um fluxo e campos distintos</div></div>
       <div class="stat"><div class="stat-num">100%<span>texto livre</span></div><div class="stat-lbl">campos abertos, sem validação prévia, em todos os canais</div></div>
-      <div class="stat"><div class="stat-num">centenas<span>de OS</span></div><div class="stat-lbl">ordens de serviço geradas para o cliente errado por dado solto</div></div>
+      <div class="stat"><div class="stat-num" style="font-size:22px;line-height:1.15">Ordens de Serviços</div><div class="stat-lbl">Endereço não localizado &amp; cliente não encontrado são os principais problemas.</div></div>
     </div>
     <p class="stat-note">As denúncias chegam por e-mail, sem padronização, em campos distintos e não tabulados — informação desorganizada que dificulta leitura, análise e priorização. <strong>Fonte: diagnóstico interno Enel — "Melhorias das Entradas de Denúncias de Fraudes Externas".</strong></p>
   </div>
@@ -1071,7 +1165,7 @@ h1,h2{letter-spacing:-.03em}
   </div>
 
   <div class="footer">
-    Diagnóstico As-Is · Fonte: material interno Enel + discovery Blip · Abr 2026
+    Diagnóstico As-Is · Fonte: material interno Enel + discovery Blip · Julho 2026
     <br><span class="f-marks"><span>Enel CE</span><span>Enel RJ</span><span>Enel SP</span><span>SAP</span></span>
   </div>
 </section>
@@ -1097,44 +1191,6 @@ h1,h2{letter-spacing:-.03em}
     </div>
   </div>
 
-  <!-- KPIs -->
-  <div class="section">
-    <div class="section-head">
-      <div class="section-title">
-        <span class="section-eyebrow">KPIs de sucesso</span>
-        <h2>As frentes que vamos medir junto com a Enel</h2>
-      </div>
-      <p class="section-desc">As métricas e baselines serão definidos em conjunto com o time da Enel a partir do discovery. Abaixo, as quatro frentes de medição que recomendamos acompanhar desde o dia 1.</p>
-    </div>
-
-    <div class="kpi-grid">
-      <div class="kpi-card accent-blip">
-        <div class="kpi-label">Denúncias úteis</div>
-        <div class="kpi-value" style="font-size:22px;font-weight:600;letter-spacing:-.005em;line-height:1.25">Mais denúncia que vira ação certa</div>
-        <div class="kpi-sub">Acompanhar a parcela de denúncias completas e geolocalizadas — as que viram ordem de serviço produtiva — em vez de medir volume bruto.</div>
-        <div class="kpi-trend">↗ Meta primária</div>
-      </div>
-      <div class="kpi-card accent-enel">
-        <div class="kpi-label">Taxa de conclusão</div>
-        <div class="kpi-value" style="font-size:22px;font-weight:600;letter-spacing:-.005em;line-height:1.25">Quem inicia e finaliza o registro</div>
-        <div class="kpi-sub">Percentual de usuários que entram no fluxo e enviam ao menos endereço + descrição. Mede o atrito real da jornada.</div>
-        <div class="kpi-trend">↗ Engajamento</div>
-      </div>
-      <div class="kpi-card accent-green">
-        <div class="kpi-label">Custo operacional</div>
-        <div class="kpi-value" style="font-size:22px;font-weight:600;letter-spacing:-.005em;line-height:1.25">Menos visita improdutiva</div>
-        <div class="kpi-sub">Queda de ordens de serviço improdutivas e re-serviço, graças à pré-qualificação da denúncia ainda na conversa — antes de a equipe ir a campo.</div>
-        <div class="kpi-trend" style="background:#E7F2FD;color:#0096FA">↘ Visita improdutiva</div>
-      </div>
-      <div class="kpi-card accent-amber">
-        <div class="kpi-label">Qualidade do dado</div>
-        <div class="kpi-value" style="font-size:22px;font-weight:600;letter-spacing:-.005em;line-height:1.25">Precisão da geolocalização</div>
-        <div class="kpi-sub">Percentual de denúncias com endereço estruturado (CEP + número + ponto de referência), comparado ao baseline do canal web.</div>
-        <div class="kpi-trend">↗ Qualidade do dado</div>
-      </div>
-    </div>
-  </div>
-
   <!-- O QUE É O PROJETO -->
   <div class="section">
     <div class="section-head">
@@ -1156,215 +1212,6 @@ h1,h2{letter-spacing:-.03em}
         </ul>
       </div>
 
-  </div>
-
-  <!-- ESTÁGIOS / FLUXO MASTER -->
-  <div class="section">
-    <div class="section-head">
-      <div class="section-title">
-        <span class="section-eyebrow">Estrutura macro da jornada</span>
-        <h2>Sete etapas, do "olá" ao protocolo</h2>
-      </div>
-    </div>
-
-    <div class="stages">
-      <div class="stage-row head">
-        <div>#</div><div>Etapa</div><div>O que acontece</div><div>Componentes Blip</div>
-      </div>
-
-      <div class="stage-row">
-        <div class="stage-num">01</div>
-        <div class="stage-name">Entrada<span>Acolhimento + LGPD</span></div>
-        <div class="stage-desc">Usuário inicia conversa no WhatsApp da Enel. IA explica que a denúncia é 100% anônima, pede consentimento LGPD e oferece menu.</div>
-        <div class="stage-tools"><span class="stage-tag">NLP Studio</span><span class="stage-tag">Quick Reply</span></div>
-      </div>
-      <div class="stage-row">
-        <div class="stage-num">02</div>
-        <div class="stage-name">Triagem<span>Tipo de ocorrência</span></div>
-        <div class="stage-desc">IA identifica se é furto de energia (gato), risco em rede, fraude de medidor ou outro, e ajusta as próximas perguntas conforme o formulário padrão Enel.</div>
-        <div class="stage-tools"><span class="stage-tag">LLM</span><span class="stage-tag">Intents</span></div>
-      </div>
-      <div class="stage-row">
-        <div class="stage-num">03</div>
-        <div class="stage-name">Localização<span>Endereço + ponto de referência</span></div>
-        <div class="stage-desc">Coleta endereço completo via WhatsApp Flows ou compartilhamento de localização nativo. IA insiste em ponto de referência para garantir precisão.</div>
-        <div class="stage-tools"><span class="stage-tag">WA Flows</span><span class="stage-tag">Geo API</span></div>
-      </div>
-      <div class="stage-row">
-        <div class="stage-num">04</div>
-        <div class="stage-name">Descrição<span>Detalhes da ocorrência</span></div>
-        <div class="stage-desc">Usuário descreve por texto ou áudio. Transcrição automática + sumarização pela IA, com perguntas de aprofundamento se faltar dado-chave.</div>
-        <div class="stage-tools"><span class="stage-tag">Speech-to-Text</span><span class="stage-tag">LLM</span></div>
-      </div>
-      <div class="stage-row">
-        <div class="stage-num">05</div>
-        <div class="stage-name">Evidências<span>Foto, vídeo, mídia</span></div>
-        <div class="stage-desc">Recepção de imagens e vídeos com armazenamento seguro. Verificação leve de qualidade e EXIF (sem expor identidade).</div>
-        <div class="stage-tools"><span class="stage-tag">Studio Flow</span></div>
-      </div>
-      <div class="stage-row">
-        <div class="stage-num">06</div>
-        <div class="stage-name">Confirmação<span>Resumo + protocolo</span></div>
-        <div class="stage-desc">IA devolve resumo da denúncia para o usuário validar, gera protocolo único e envia confirmação. Anonimato preservado: nenhum dado pessoal armazenado.</div>
-        <div class="stage-tools"><span class="stage-tag">Studio Flow</span><span class="stage-tag">Protocol API</span></div>
-      </div>
-      <div class="stage-row">
-        <div class="stage-num">07</div>
-        <div class="stage-name">Acompanhamento<span>Status + transbordo</span></div>
-        <div class="stage-desc">Usuário pode voltar e consultar status pelo número de protocolo. Casos complexos transbordam para Ouvidoria com contexto preservado.</div>
-        <div class="stage-tools"><span class="stage-tag">Status API</span><span class="stage-tag">Handoff</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- QUICK WINS -->
-  <div class="section">
-    <div class="section-head">
-      <div class="section-title">
-        <span class="section-eyebrow">Quick wins</span>
-        <h2>Ganhos previstos na primeira fase</h2>
-      </div>
-      <p class="section-desc">Sem metodologia de múltiplas sprints: tudo aqui é nativo da plataforma e entra como entrega abrangente da V1. A lista abaixo é o que destrava resultado mais cedo dentro dessa V1.</p>
-    </div>
-    <div class="qw-grid">
-      <div class="qw-card">
-        <span class="qw-tag fast">Nativo · V1</span>
-        <div class="qw-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h4>Localização nativa do WhatsApp</h4>
-        <p>Habilitar compartilhamento de localização em tempo real elimina o campo "endereço" do formulário web e dispara a precisão geo de imediato.</p>
-      </div>
-      <div class="qw-card">
-        <span class="qw-tag fast">Nativo · V1</span>
-        <div class="qw-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        </div>
-        <h4>Recepção de foto e vídeo</h4>
-        <p>Transformar evidência visual em campo "obrigatório opcional" — IA pede, mas não bloqueia. Aumenta qualidade da denúncia sem aumentar abandono.</p>
-      </div>
-      <div class="qw-card">
-        <span class="qw-tag fast">Nativo · V1</span>
-        <div class="qw-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-        </div>
-        <h4>Áudio + transcrição</h4>
-        <p>Quem teme retaliação prefere falar a digitar. IA transcreve e estrutura, garantindo o mesmo dado de saída do canal por texto.</p>
-      </div>
-      <div class="qw-card">
-        <span class="qw-tag fast">Plataforma · V1</span>
-        <div class="qw-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
-        </div>
-        <h4>WhatsApp Flow estruturado</h4>
-        <p>Para usuários que preferem preencher um "mini formulário" sem ficar de papo com IA — Flow nativo replicando o formulário Enel atual.</p>
-      </div>
-      <div class="qw-card">
-        <span class="qw-tag fast">Plataforma · V1</span>
-        <div class="qw-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
-        <h4>Consulta de status por protocolo</h4>
-        <p>Reduz volume na Ouvidoria e dá ao usuário a sensação de que a denúncia não caiu no vácuo. Reativa a base para outras jornadas.</p>
-      </div>
-      <div class="qw-card">
-        <span class="qw-tag fast">Governança · V1</span>
-        <div class="qw-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="3" y="9" width="18" height="12" rx="2"/></svg>
-        </div>
-        <h4>Anonimato técnico auditável</h4>
-        <p>Camada de pseudonimização no Blip Studio: a denúncia chega para a Enel sem PII, mas com hash auditável caso haja necessidade legal.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- VISÃO SISTÊMICA -->
-  <div class="section">
-    <div class="section-head">
-      <div class="section-title"><span class="section-eyebrow">Visão sistêmica</span><h2>Da conversa no WhatsApp ao Banco de Alvos no SAP</h2></div>
-      <p class="section-desc">Como o dado caminha, pensado para a equipe de backend confiar na integração. O detalhamento técnico fica com o time de Arquitetura de Soluções.</p>
-    </div>
-    <div class="flow">
-      <div class="flow-node">
-        <div class="flow-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg></div>
-        <h5>WhatsApp do usuário</h5>
-        <p>Denúncia conversacional: texto, áudio, foto, vídeo e localização nativa.</p>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="flow-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        <h5>Blip Studio</h5>
-        <p>Orquestra a IA, valida os campos, pseudonimiza e gera o protocolo único.</p>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node sap">
-        <div class="flow-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
-        <h5>SAP</h5>
-        <p>Grava a denúncia identificando a instalação do cliente denunciado.</p>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node sap">
-        <div class="flow-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v6H3zM3 9v12h18V9M7 13h4M7 17h4"/></svg></div>
-        <h5>Data Lake</h5>
-        <p>Tabela do SAP mapeada no Data Lake, padronizada e tabular.</p>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node sap">
-        <div class="flow-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></div>
-        <h5>Banco de Alvos</h5>
-        <p>Alvos qualificados e priorizados para a operação técnica agir em campo.</p>
-      </div>
-    </div>
-    <p class="flow-note"><strong>Anonimato com rastreabilidade:</strong> a denúncia chega para a Enel sem dado pessoal, mas com hash auditável caso haja necessidade legal — LGPD by design. O <strong>Sentinel monitora a jornada 24/7</strong>, e a triagem por IA garante que só denúncia real abastece o Banco de Alvos.</p>
-  </div>
-
-  <!-- NÃO-DENÚNCIA -->
-  <div class="section">
-    <div class="section-head">
-      <div class="section-title"><span class="section-eyebrow">Triagem</span><h2>O que não é denúncia é redirecionado antes do ticket</h2></div>
-      <p class="section-desc">Hoje o canal de denúncia recebe assuntos que não são fraude — poluindo a base. A IA reconhece a intenção e redireciona, sem abrir ticket à toa.</p>
-    </div>
-    <div class="split">
-      <div class="card nd-bad">
-        <span class="card-eyebrow">Chega no canal, mas não é denúncia</span>
-        <ul class="problem-list">
-          <li>Reclamação de valor de conta / segunda via de fatura.</li>
-          <li>Pedido de encerramento de contrato ou troca de titularidade.</li>
-          <li>Falta de energia, religação e dúvidas de atendimento.</li>
-          <li>Hoje tudo isso vira "denúncia" e contamina a base de alvos.</li>
-        </ul>
-      </div>
-      <div class="card nd-good">
-        <span class="card-eyebrow">O que a IA faz</span>
-        <ul class="problem-list good">
-          <li>Reconhece a intenção real já na primeira mensagem.</li>
-          <li>Explica com gentileza que aquele assunto tem o caminho certo.</li>
-          <li>Oferece o atalho (2ª via, atendimento, religação) sem abrir ticket de fraude.</li>
-          <li>Só denúncia real segue para o SAP e o Banco de Alvos — base limpa e tabular.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- COMPARISON As-Is x To-Be -->
-  <div class="section">
-    <div class="section-head">
-      <div class="section-title"><span class="section-eyebrow">Comparativo</span><h2>Do processo atual para a jornada padronizada</h2></div>
-      <p class="section-desc">Os diferenciais e ganhos, dimensão por dimensão — o resumo que a diretoria leva da reunião.</p>
-    </div>
-    <div class="cmp">
-      <div class="cmp-row head"><div class="cmp-dim" style="background:#FAFAFC">Dimensão</div><div class="cmp-h hoje">Hoje · As-Is</div><div class="cmp-h tobe">Com IA no WhatsApp · To-Be</div></div>
-      <div class="cmp-row"><div class="cmp-dim">Canal de entrada</div><div class="cmp-hoje">3 formulários web distintos + 0800</div><div class="cmp-tobe">Um único fluxo no WhatsApp, igual nas 3 DXs</div></div>
-      <div class="cmp-row"><div class="cmp-dim">Padronização entre DXs</div><div class="cmp-hoje">Inexistente — cada DX de um jeito</div><div class="cmp-tobe">Padrão único de entrada para CE, RJ e SP</div></div>
-      <div class="cmp-row"><div class="cmp-dim">Validação de dados</div><div class="cmp-hoje">Campos abertos, qualquer texto</div><div class="cmp-tobe">Campos validados; número só aceita número</div></div>
-      <div class="cmp-row"><div class="cmp-dim">Localização</div><div class="cmp-hoje">Sem CEP ou número confiável</div><div class="cmp-tobe">CEP, número e geolocalização nativa do WhatsApp</div></div>
-      <div class="cmp-row"><div class="cmp-dim">Evidências</div><div class="cmp-hoje">Não há captura estruturada</div><div class="cmp-tobe">Foto, vídeo e áudio com transcrição automática</div></div>
-      <div class="cmp-row"><div class="cmp-dim">Retorno ao denunciante</div><div class="cmp-hoje">Nenhum — cai no vácuo</div><div class="cmp-tobe">Protocolo consultável, sem necessidade de login</div></div>
-      <div class="cmp-row"><div class="cmp-dim">Não-denúncias</div><div class="cmp-hoje">Entram e poluem a base</div><div class="cmp-tobe">IA reconhece e redireciona antes do ticket</div></div>
-      <div class="cmp-row"><div class="cmp-dim">Gravação no SAP</div><div class="cmp-hoje">Endereço solto, o match falha</div><div class="cmp-tobe">Grava no SAP e abastece o Banco de Alvos</div></div>
-      <div class="cmp-row"><div class="cmp-dim">Anonimato</div><div class="cmp-hoje">Anônimo, mas sem rastreabilidade</div><div class="cmp-tobe">Anônimo com hash auditável (LGPD by design)</div></div>
-      <div class="cmp-row"><div class="cmp-dim">Custo operacional</div><div class="cmp-hoje">OS para cliente errado, re-serviço</div><div class="cmp-tobe">Pré-qualificação reduz a visita improdutiva</div></div>
-    </div>
   </div>
 
   <!-- ANTES E DEPOIS -->
@@ -1439,37 +1286,183 @@ h1,h2{letter-spacing:-.03em}
     </div>
   </div>
 
-  <!-- ATIVAÇÃO + QR DEMO -->
+  <!-- COMPARISON As-Is x To-Be -->
   <div class="section">
     <div class="section-head">
-      <div class="section-title"><span class="section-eyebrow">Ativação</span><h2>Estratégia de ativação do canal</h2></div>
+      <div class="section-title"><span class="section-eyebrow">Comparativo</span><h2>Do processo atual para a jornada padronizada</h2></div>
+      <p class="section-desc">Os diferenciais e ganhos, dimensão por dimensão — o resumo que a diretoria leva da reunião.</p>
     </div>
-    <div class="split">
-      <div class="card">
-        <span class="card-eyebrow">Estratégia de divulgação</span>
-        <h3>Mapa de calor guia onde o QR aparece</h3>
-        <p>Em vez de espalhar o canal no escuro, usar o histórico de denúncias e perdas para priorizar a divulgação nas regiões certas.</p>
-        <ul class="problem-list good">
-          <li>Mapa de calor das áreas com maior volume de denúncia e furto.</li>
-          <li>Distribuição de QR codes físicos e digitais nessas regiões.</li>
-          <li>Clique-to-WhatsApp no site e no app, substituindo o formulário antigo.</li>
-          <li>Campanhas pontuais nas áreas de maior perda não técnica.</li>
-        </ul>
+    <div class="cmp">
+      <div class="cmp-row head"><div class="cmp-dim" style="background:#FAFAFC">Dimensão</div><div class="cmp-h hoje">Hoje · As-Is</div><div class="cmp-h tobe">Com IA no WhatsApp · To-Be</div></div>
+      <div class="cmp-row"><div class="cmp-dim">Canal de entrada</div><div class="cmp-hoje">3 formulários web distintos + 0800</div><div class="cmp-tobe">Um único fluxo no WhatsApp, igual nas 3 DXs</div></div>
+      <div class="cmp-row"><div class="cmp-dim">Padronização entre DXs</div><div class="cmp-hoje">Inexistente — cada DX de um jeito</div><div class="cmp-tobe">Padrão único de entrada para CE, RJ e SP</div></div>
+      <div class="cmp-row"><div class="cmp-dim">Validação de dados</div><div class="cmp-hoje">Campos abertos, qualquer texto</div><div class="cmp-tobe">Campos validados; número só aceita número</div></div>
+      <div class="cmp-row"><div class="cmp-dim">Localização</div><div class="cmp-hoje">Sem CEP ou número confiável</div><div class="cmp-tobe">CEP, número e geolocalização nativa do WhatsApp</div></div>
+      <div class="cmp-row"><div class="cmp-dim">Evidências</div><div class="cmp-hoje">Não há captura estruturada</div><div class="cmp-tobe">Foto, vídeo e áudio com transcrição automática</div></div>
+      <div class="cmp-row"><div class="cmp-dim">Retorno ao denunciante</div><div class="cmp-hoje">Inexistente</div><div class="cmp-tobe">Protocolo consultável, sem necessidade de login</div></div>
+      <div class="cmp-row"><div class="cmp-dim">Não-denúncias</div><div class="cmp-hoje">Entram e poluem a base</div><div class="cmp-tobe">IA reconhece e redireciona antes do ticket</div></div>
+      <div class="cmp-row"><div class="cmp-dim">Gravação no SAP</div><div class="cmp-hoje">Endereço solto, o match falha</div><div class="cmp-tobe">Grava no SAP e abastece o Banco de Alvos</div></div>
+      <div class="cmp-row"><div class="cmp-dim">Anonimato</div><div class="cmp-hoje">Anônimo, mas sem rastreabilidade</div><div class="cmp-tobe">Anônimo com hash auditável (LGPD by design)</div></div>
+      <div class="cmp-row"><div class="cmp-dim">Custo operacional</div><div class="cmp-hoje">OS para cliente errado, re-serviço</div><div class="cmp-tobe">Pré-qualificação reduz a visita improdutiva</div></div>
+    </div>
+  </div>
+
+  <!-- ESTÁGIOS / FLUXO MASTER -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">
+        <span class="section-eyebrow">Estrutura macro da jornada</span>
+        <h2>Sete etapas, do "olá" ao protocolo</h2>
       </div>
-      <div class="qr-card">
-        <div class="qr-frame"><svg width="43mm" height="43mm" version="1.1" viewBox="0 0 43 43" xmlns="http://www.w3.org/2000/svg"><path d="M1,1H2V2H1zM2,1H3V2H2zM3,1H4V2H3zM4,1H5V2H4zM5,1H6V2H5zM6,1H7V2H6zM7,1H8V2H7zM10,1H11V2H10zM11,1H12V2H11zM15,1H16V2H15zM17,1H18V2H17zM19,1H20V2H19zM20,1H21V2H20zM21,1H22V2H21zM24,1H25V2H24zM25,1H26V2H25zM29,1H30V2H29zM30,1H31V2H30zM31,1H32V2H31zM32,1H33V2H32zM33,1H34V2H33zM35,1H36V2H35zM36,1H37V2H36zM37,1H38V2H37zM38,1H39V2H38zM39,1H40V2H39zM40,1H41V2H40zM41,1H42V2H41zM1,2H2V3H1zM7,2H8V3H7zM13,2H14V3H13zM14,2H15V3H14zM16,2H17V3H16zM17,2H18V3H17zM19,2H20V3H19zM21,2H22V3H21zM23,2H24V3H23zM28,2H29V3H28zM31,2H32V3H31zM35,2H36V3H35zM41,2H42V3H41zM1,3H2V4H1zM3,3H4V4H3zM4,3H5V4H4zM5,3H6V4H5zM7,3H8V4H7zM9,3H10V4H9zM10,3H11V4H10zM17,3H18V4H17zM20,3H21V4H20zM24,3H25V4H24zM25,3H26V4H25zM27,3H28V4H27zM28,3H29V4H28zM29,3H30V4H29zM33,3H34V4H33zM35,3H36V4H35zM37,3H38V4H37zM38,3H39V4H38zM39,3H40V4H39zM41,3H42V4H41zM1,4H2V5H1zM3,4H4V5H3zM4,4H5V5H4zM5,4H6V5H5zM7,4H8V5H7zM9,4H10V5H9zM11,4H12V5H11zM13,4H14V5H13zM14,4H15V5H14zM15,4H16V5H15zM16,4H17V5H16zM19,4H20V5H19zM22,4H23V5H22zM23,4H24V5H23zM25,4H26V5H25zM28,4H29V5H28zM29,4H30V5H29zM35,4H36V5H35zM37,4H38V5H37zM38,4H39V5H38zM39,4H40V5H39zM41,4H42V5H41zM1,5H2V6H1zM3,5H4V6H3zM4,5H5V6H4zM5,5H6V6H5zM7,5H8V6H7zM9,5H10V6H9zM10,5H11V6H10zM13,5H14V6H13zM15,5H16V6H15zM18,5H19V6H18zM20,5H21V6H20zM21,5H22V6H21zM24,5H25V6H24zM26,5H27V6H26zM27,5H28V6H27zM31,5H32V6H31zM32,5H33V6H32zM33,5H34V6H33zM35,5H36V6H35zM37,5H38V6H37zM38,5H39V6H38zM39,5H40V6H39zM41,5H42V6H41zM1,6H2V7H1zM7,6H8V7H7zM9,6H10V7H9zM13,6H14V7H13zM14,6H15V7H14zM17,6H18V7H17zM19,6H20V7H19zM22,6H23V7H22zM25,6H26V7H25zM26,6H27V7H26zM27,6H28V7H27zM28,6H29V7H28zM30,6H31V7H30zM33,6H34V7H33zM35,6H36V7H35zM41,6H42V7H41zM1,7H2V8H1zM2,7H3V8H2zM3,7H4V8H3zM4,7H5V8H4zM5,7H6V8H5zM6,7H7V8H6zM7,7H8V8H7zM9,7H10V8H9zM11,7H12V8H11zM13,7H14V8H13zM15,7H16V8H15zM17,7H18V8H17zM19,7H20V8H19zM21,7H22V8H21zM23,7H24V8H23zM25,7H26V8H25zM27,7H28V8H27zM29,7H30V8H29zM31,7H32V8H31zM33,7H34V8H33zM35,7H36V8H35zM36,7H37V8H36zM37,7H38V8H37zM38,7H39V8H38zM39,7H40V8H39zM40,7H41V8H40zM41,7H42V8H41zM9,8H10V9H9zM10,8H11V9H10zM11,8H12V9H11zM12,8H13V9H12zM13,8H14V9H13zM15,8H16V9H15zM17,8H18V9H17zM19,8H20V9H19zM22,8H23V9H22zM23,8H24V9H23zM27,8H28V9H27zM33,8H34V9H33zM1,9H2V10H1zM3,9H4V10H3zM4,9H5V10H4zM5,9H6V10H5zM6,9H7V10H6zM7,9H8V10H7zM10,9H11V10H10zM11,9H12V10H11zM12,9H13V10H12zM14,9H15V10H14zM17,9H18V10H17zM18,9H19V10H18zM19,9H20V10H19zM21,9H22V10H21zM26,9H27V10H26zM28,9H29V10H28zM30,9H31V10H30zM33,9H34V10H33zM35,9H36V10H35zM36,9H37V10H36zM37,9H38V10H37zM38,9H39V10H38zM39,9H40V10H39zM1,10H2V11H1zM2,10H3V11H2zM3,10H4V11H3zM4,10H5V11H4zM5,10H6V11H5zM8,10H9V11H8zM9,10H10V11H9zM11,10H12V11H11zM12,10H13V11H12zM13,10H14V11H13zM14,10H15V11H14zM20,10H21V11H20zM22,10H23V11H22zM23,10H24V11H23zM24,10H25V11H24zM25,10H26V11H25zM27,10H28V11H27zM31,10H32V11H31zM32,10H33V11H32zM33,10H34V11H33zM34,10H35V11H34zM35,10H36V11H35zM37,10H38V11H37zM39,10H40V11H39zM41,10H42V11H41zM2,11H3V12H2zM7,11H8V12H7zM9,11H10V12H9zM10,11H11V12H10zM13,11H14V12H13zM17,11H18V12H17zM19,11H20V12H19zM21,11H22V12H21zM22,11H23V12H22zM28,11H29V12H28zM29,11H30V12H29zM33,11H34V12H33zM35,11H36V12H35zM36,11H37V12H36zM40,11H41V12H40zM2,12H3V13H2zM4,12H5V13H4zM5,12H6V13H5zM9,12H10V13H9zM13,12H14V13H13zM15,12H16V13H15zM16,12H17V13H16zM17,12H18V13H17zM22,12H23V13H22zM23,12H24V13H23zM25,12H26V13H25zM28,12H29V13H28zM29,12H30V13H29zM32,12H33V13H32zM33,12H34V13H33zM36,12H37V13H36zM38,12H39V13H38zM40,12H41V13H40zM41,12H42V13H41zM2,13H3V14H2zM4,13H5V14H4zM7,13H8V14H7zM8,13H9V14H8zM9,13H10V14H9zM10,13H11V14H10zM11,13H12V14H11zM12,13H13V14H12zM14,13H15V14H14zM18,13H19V14H18zM19,13H20V14H19zM20,13H21V14H20zM23,13H24V14H23zM26,13H27V14H26zM27,13H28V14H27zM28,13H29V14H28zM30,13H31V14H30zM32,13H33V14H32zM34,13H35V14H34zM36,13H37V14H36zM38,13H39V14H38zM39,13H40V14H39zM40,13H41V14H40zM1,14H2V15H1zM3,14H4V15H3zM5,14H6V15H5zM10,14H11V15H10zM16,14H17V15H16zM18,14H19V15H18zM19,14H20V15H19zM21,14H22V15H21zM22,14H23V15H22zM23,14H24V15H23zM25,14H26V15H25zM27,14H28V15H27zM28,14H29V15H28zM29,14H30V15H29zM33,14H34V15H33zM34,14H35V15H34zM35,14H36V15H35zM36,14H37V15H36zM37,14H38V15H37zM38,14H39V15H38zM39,14H40V15H39zM40,14H41V15H40zM2,15H3V16H2zM4,15H5V16H4zM5,15H6V16H5zM6,15H7V16H6zM7,15H8V16H7zM8,15H9V16H8zM10,15H11V16H10zM11,15H12V16H11zM12,15H13V16H12zM19,15H20V16H19zM20,15H21V16H20zM22,15H23V16H22zM23,15H24V16H23zM27,15H28V16H27zM34,15H35V16H34zM37,15H38V16H37zM38,15H39V16H38zM39,15H40V16H39zM1,16H2V17H1zM2,16H3V17H2zM4,16H5V17H4zM6,16H7V17H6zM8,16H9V17H8zM9,16H10V17H9zM15,16H16V17H15zM16,16H17V17H16zM17,16H18V17H17zM20,16H21V17H20zM21,16H22V17H21zM22,16H23V17H22zM23,16H24V17H23zM25,16H26V17H25zM27,16H28V17H27zM29,16H30V17H29zM35,16H36V17H35zM38,16H39V17H38zM40,16H41V17H40zM2,17H3V18H2zM5,17H6V18H5zM7,17H8V18H7zM9,17H10V18H9zM10,17H11V18H10zM14,17H15V18H14zM18,17H19V18H18zM20,17H21V18H20zM22,17H23V18H22zM23,17H24V18H23zM26,17H27V18H26zM27,17H28V18H27zM30,17H31V18H30zM31,17H32V18H31zM34,17H35V18H34zM36,17H37V18H36zM38,17H39V18H38zM39,17H40V18H39zM40,17H41V18H40zM1,18H2V19H1zM2,18H3V19H2zM5,18H6V19H5zM6,18H7V19H6zM8,18H9V19H8zM11,18H12V19H11zM14,18H15V19H14zM16,18H17V19H16zM17,18H18V19H17zM18,18H19V19H18zM19,18H20V19H19zM20,18H21V19H20zM21,18H22V19H21zM22,18H23V19H22zM24,18H25V19H24zM25,18H26V19H25zM26,18H27V19H26zM28,18H29V19H28zM29,18H30V19H29zM31,18H32V19H31zM32,18H33V19H32zM33,18H34V19H33zM35,18H36V19H35zM36,18H37V19H36zM37,18H38V19H37zM38,18H39V19H38zM41,18H42V19H41zM2,19H3V20H2zM3,19H4V20H3zM4,19H5V20H4zM7,19H8V20H7zM8,19H9V20H8zM9,19H10V20H9zM11,19H12V20H11zM12,19H13V20H12zM15,19H16V20H15zM16,19H17V20H16zM18,19H19V20H18zM22,19H23V20H22zM26,19H27V20H26zM27,19H28V20H27zM28,19H29V20H28zM31,19H32V20H31zM37,19H38V20H37zM40,19H41V20H40zM1,20H2V21H1zM2,20H3V21H2zM3,20H4V21H3zM4,20H5V21H4zM5,20H6V21H5zM6,20H7V21H6zM9,20H10V21H9zM10,20H11V21H10zM15,20H16V21H15zM18,20H19V21H18zM19,20H20V21H19zM20,20H21V21H20zM21,20H22V21H21zM22,20H23V21H22zM23,20H24V21H23zM24,20H25V21H24zM25,20H26V21H25zM26,20H27V21H26zM28,20H29V21H28zM34,20H35V21H34zM37,20H38V21H37zM38,20H39V21H38zM40,20H41V21H40zM41,20H42V21H41zM1,21H2V22H1zM2,21H3V22H2zM5,21H6V22H5zM6,21H7V22H6zM7,21H8V22H7zM10,21H11V22H10zM13,21H14V22H13zM16,21H17V22H16zM20,21H21V22H20zM21,21H22V22H21zM22,21H23V22H22zM27,21H28V22H27zM28,21H29V22H28zM29,21H30V22H29zM31,21H32V22H31zM33,21H34V22H33zM34,21H35V22H34zM39,21H40V22H39zM5,22H6V23H5zM8,22H9V23H8zM9,22H10V23H9zM11,22H12V23H11zM13,22H14V23H13zM15,22H16V23H15zM17,22H18V23H17zM19,22H20V23H19zM20,22H21V23H20zM23,22H24V23H23zM24,22H25V23H24zM31,22H32V23H31zM32,22H33V23H32zM33,22H34V23H33zM35,22H36V23H35zM36,22H37V23H36zM37,22H38V23H37zM40,22H41V23H40zM41,22H42V23H41zM1,23H2V24H1zM2,23H3V24H2zM4,23H5V24H4zM5,23H6V24H5zM6,23H7V24H6zM7,23H8V24H7zM9,23H10V24H9zM10,23H11V24H10zM12,23H13V24H12zM16,23H17V24H16zM17,23H18V24H17zM19,23H20V24H19zM22,23H23V24H22zM27,23H28V24H27zM28,23H29V24H28zM29,23H30V24H29zM31,23H32V24H31zM33,23H34V24H33zM36,23H37V24H36zM2,24H3V25H2zM3,24H4V25H3zM5,24H6V25H5zM8,24H9V25H8zM10,24H11V25H10zM11,24H12V25H11zM12,24H13V25H12zM13,24H14V25H13zM14,24H15V25H14zM15,24H16V25H15zM19,24H20V25H19zM20,24H21V25H20zM22,24H23V25H22zM23,24H24V25H23zM24,24H25V25H24zM25,24H26V25H25zM27,24H28V25H27zM28,24H29V25H28zM29,24H30V25H29zM36,24H37V25H36zM38,24H39V25H38zM40,24H41V25H40zM41,24H42V25H41zM1,25H2V26H1zM2,25H3V26H2zM4,25H5V26H4zM6,25H7V26H6zM7,25H8V26H7zM8,25H9V26H8zM9,25H10V26H9zM12,25H13V26H12zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM19,25H20V26H19zM21,25H22V26H21zM26,25H27V26H26zM28,25H29V26H28zM30,25H31V26H30zM31,25H32V26H31zM34,25H35V26H34zM39,25H40V26H39zM40,25H41V26H40zM41,25H42V26H41zM1,26H2V27H1zM2,26H3V27H2zM4,26H5V27H4zM5,26H6V27H5zM9,26H10V27H9zM12,26H13V27H12zM14,26H15V27H14zM15,26H16V27H15zM16,26H17V27H16zM17,26H18V27H17zM20,26H21V27H20zM22,26H23V27H22zM23,26H24V27H23zM24,26H25V27H24zM25,26H26V27H25zM27,26H28V27H27zM29,26H30V27H29zM31,26H32V27H31zM32,26H33V27H32zM35,26H36V27H35zM36,26H37V27H36zM37,26H38V27H37zM38,26H39V27H38zM41,26H42V27H41zM2,27H3V28H2zM5,27H6V28H5zM7,27H8V28H7zM9,27H10V28H9zM13,27H14V28H13zM14,27H15V28H14zM15,27H16V28H15zM16,27H17V28H16zM17,27H18V28H17zM21,27H22V28H21zM27,27H28V28H27zM28,27H29V28H28zM29,27H30V28H29zM30,27H31V28H30zM31,27H32V28H31zM33,27H34V28H33zM36,27H37V28H36zM37,27H38V28H37zM40,27H41V28H40zM2,28H3V29H2zM3,28H4V29H3zM9,28H10V29H9zM10,28H11V29H10zM12,28H13V29H12zM13,28H14V29H13zM16,28H17V29H16zM17,28H18V29H17zM20,28H21V29H20zM21,28H22V29H21zM22,28H23V29H22zM25,28H26V29H25zM28,28H29V29H28zM29,28H30V29H29zM31,28H32V29H31zM32,28H33V29H32zM33,28H34V29H33zM36,28H37V29H36zM38,28H39V29H38zM1,29H2V30H1zM2,29H3V30H2zM4,29H5V30H4zM5,29H6V30H5zM7,29H8V30H7zM9,29H10V30H9zM10,29H11V30H10zM15,29H16V30H15zM16,29H17V30H16zM17,29H18V30H17zM18,29H19V30H18zM19,29H20V30H19zM21,29H22V30H21zM25,29H26V30H25zM26,29H27V30H26zM27,29H28V30H27zM29,29H30V30H29zM30,29H31V30H30zM32,29H33V30H32zM33,29H34V30H33zM34,29H35V30H34zM36,29H37V30H36zM38,29H39V30H38zM39,29H40V30H39zM1,30H2V31H1zM3,30H4V31H3zM4,30H5V31H4zM6,30H7V31H6zM8,30H9V31H8zM11,30H12V31H11zM12,30H13V31H12zM13,30H14V31H13zM15,30H16V31H15zM17,30H18V31H17zM22,30H23V31H22zM26,30H27V31H26zM28,30H29V31H28zM31,30H32V31H31zM32,30H33V31H32zM35,30H36V31H35zM36,30H37V31H36zM37,30H38V31H37zM38,30H39V31H38zM41,30H42V31H41zM1,31H2V32H1zM3,31H4V32H3zM4,31H5V32H4zM7,31H8V32H7zM8,31H9V32H8zM9,31H10V32H9zM10,31H11V32H10zM13,31H14V32H13zM14,31H15V32H14zM15,31H16V32H15zM17,31H18V32H17zM19,31H20V32H19zM21,31H22V32H21zM24,31H25V32H24zM25,31H26V32H25zM26,31H27V32H26zM27,31H28V32H27zM28,31H29V32H28zM29,31H30V32H29zM34,31H35V32H34zM35,31H36V32H35zM36,31H37V32H36zM37,31H38V32H37zM40,31H41V32H40zM1,32H2V33H1zM3,32H4V33H3zM4,32H5V33H4zM11,32H12V33H11zM12,32H13V33H12zM14,32H15V33H14zM16,32H17V33H16zM22,32H23V33H22zM24,32H25V33H24zM28,32H29V33H28zM32,32H33V33H32zM34,32H35V33H34zM35,32H36V33H35zM36,32H37V33H36zM37,32H38V33H37zM38,32H39V33H38zM40,32H41V33H40zM41,32H42V33H41zM1,33H2V34H1zM5,33H6V34H5zM7,33H8V34H7zM9,33H10V34H9zM17,33H18V34H17zM18,33H19V34H18zM19,33H20V34H19zM22,33H23V34H22zM23,33H24V34H23zM24,33H25V34H24zM25,33H26V34H25zM26,33H27V34H26zM28,33H29V34H28zM29,33H30V34H29zM30,33H31V34H30zM31,33H32V34H31zM33,33H34V34H33zM34,33H35V34H34zM35,33H36V34H35zM36,33H37V34H36zM37,33H38V34H37zM39,33H40V34H39zM40,33H41V34H40zM9,34H10V35H9zM10,34H11V35H10zM11,34H12V35H11zM17,34H18V35H17zM19,34H20V35H19zM20,34H21V35H20zM21,34H22V35H21zM30,34H31V35H30zM32,34H33V35H32zM33,34H34V35H33zM37,34H38V35H37zM38,34H39V35H38zM41,34H42V35H41zM1,35H2V36H1zM2,35H3V36H2zM3,35H4V36H3zM4,35H5V36H4zM5,35H6V36H5zM6,35H7V36H6zM7,35H8V36H7zM10,35H11V36H10zM11,35H12V36H11zM13,35H14V36H13zM14,35H15V36H14zM15,35H16V36H15zM16,35H17V36H16zM19,35H20V36H19zM21,35H22V36H21zM23,35H24V36H23zM28,35H29V36H28zM30,35H31V36H30zM32,35H33V36H32zM33,35H34V36H33zM35,35H36V36H35zM37,35H38V36H37zM38,35H39V36H38zM40,35H41V36H40zM1,36H2V37H1zM7,36H8V37H7zM9,36H10V37H9zM10,36H11V37H10zM13,36H14V37H13zM15,36H16V37H15zM27,36H28V37H27zM30,36H31V37H30zM31,36H32V37H31zM33,36H34V37H33zM37,36H38V37H37zM38,36H39V37H38zM1,37H2V38H1zM3,37H4V38H3zM4,37H5V38H4zM5,37H6V38H5zM7,37H8V38H7zM9,37H10V38H9zM11,37H12V38H11zM12,37H13V38H12zM13,37H14V38H13zM16,37H17V38H16zM19,37H20V38H19zM21,37H22V38H21zM22,37H23V38H22zM23,37H24V38H23zM28,37H29V38H28zM33,37H34V38H33zM34,37H35V38H34zM35,37H36V38H35zM36,37H37V38H36zM37,37H38V38H37zM39,37H40V38H39zM1,38H2V39H1zM3,38H4V39H3zM4,38H5V39H4zM5,38H6V39H5zM7,38H8V39H7zM9,38H10V39H9zM11,38H12V39H11zM12,38H13V39H12zM14,38H15V39H14zM15,38H16V39H15zM16,38H17V39H16zM17,38H18V39H17zM20,38H21V39H20zM22,38H23V39H22zM24,38H25V39H24zM27,38H28V39H27zM30,38H31V39H30zM31,38H32V39H31zM33,38H34V39H33zM34,38H35V39H34zM36,38H37V39H36zM1,39H2V40H1zM3,39H4V40H3zM4,39H5V40H4zM5,39H6V40H5zM7,39H8V40H7zM9,39H10V40H9zM10,39H11V40H10zM17,39H18V40H17zM21,39H22V40H21zM23,39H24V40H23zM27,39H28V40H27zM28,39H29V40H28zM29,39H30V40H29zM30,39H31V40H30zM34,39H35V40H34zM35,39H36V40H35zM36,39H37V40H36zM37,39H38V40H37zM38,39H39V40H38zM39,39H40V40H39zM1,40H2V41H1zM7,40H8V41H7zM11,40H12V41H11zM13,40H14V41H13zM18,40H19V41H18zM19,40H20V41H19zM21,40H22V41H21zM22,40H23V41H22zM27,40H28V41H27zM29,40H30V41H29zM31,40H32V41H31zM32,40H33V41H32zM35,40H36V41H35zM37,40H38V41H37zM38,40H39V41H38zM40,40H41V41H40zM1,41H2V42H1zM2,41H3V42H2zM3,41H4V42H3zM4,41H5V42H4zM5,41H6V42H5zM6,41H7V42H6zM7,41H8V42H7zM9,41H10V42H9zM10,41H11V42H10zM11,41H12V42H11zM14,41H15V42H14zM15,41H16V42H15zM16,41H17V42H16zM17,41H18V42H17zM19,41H20V42H19zM21,41H22V42H21zM26,41H27V42H26zM30,41H31V42H30zM32,41H33V42H32zM36,41H37V42H36zM37,41H38V42H37zM39,41H40V42H39z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div>
-        <div class="qr-side">
-          <span class="qr-eyebrow">Demo ao vivo</span>
-          <h4>Teste a Denúncia com IA agora</h4>
-          <p>Aponte a câmera do celular no QR Code e converse com a IA direto no WhatsApp.</p>
-          <a class="qr-link" href="https://wa.me/5511996798056" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg>+55 11 99679-8056</a>
+      <p class="section-desc">A jornada conversacional, da abertura ao protocolo — um único fluxo para as três distribuidoras, sem reinventar a regra de denúncia.</p>
+    </div>
+
+    <div class="stages">
+      <div class="stage-row head">
+        <div>#</div><div>Etapa</div><div>O que acontece</div>
+      </div>
+
+      <div class="stage-row">
+        <div class="stage-num">01</div>
+        <div class="stage-name">Entrada<span>Acolhimento + LGPD</span></div>
+        <div class="stage-desc">Usuário inicia conversa no WhatsApp da Enel. IA explica que a denúncia é 100% anônima, pede consentimento LGPD e oferece menu.</div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">02</div>
+        <div class="stage-name">Triagem<span>Tipo de ocorrência</span></div>
+        <div class="stage-desc">IA identifica se é furto de energia (gato), risco em rede, fraude de medidor ou outro, e ajusta as próximas perguntas conforme o formulário padrão Enel.</div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">03</div>
+        <div class="stage-name">Localização<span>Endereço + ponto de referência</span></div>
+        <div class="stage-desc">Coleta endereço completo via WhatsApp Flows ou compartilhamento de localização nativo. IA insiste em ponto de referência para garantir precisão.</div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">04</div>
+        <div class="stage-name">Descrição<span>Detalhes da ocorrência</span></div>
+        <div class="stage-desc">Usuário descreve por texto ou áudio. Transcrição automática + sumarização pela IA, com perguntas de aprofundamento se faltar dado-chave.</div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">05</div>
+        <div class="stage-name">Evidências<span>Foto, vídeo, mídia</span></div>
+        <div class="stage-desc">Recepção de imagens e vídeos com armazenamento seguro. Verificação leve de qualidade e EXIF (sem expor identidade).</div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">06</div>
+        <div class="stage-name">Confirmação<span>Resumo + protocolo</span></div>
+        <div class="stage-desc">IA devolve resumo da denúncia para o usuário validar, gera protocolo único e envia confirmação. Anonimato preservado: nenhum dado pessoal armazenado.</div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">07</div>
+        <div class="stage-name">Acompanhamento<span>Status + transbordo</span></div>
+        <div class="stage-desc">Usuário pode voltar e consultar status pelo número de protocolo. Casos complexos transbordam para Ouvidoria com contexto preservado.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISÃO SISTÊMICA + QUICK WINS -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title"><span class="section-eyebrow">Visão sistêmica &amp; ganhos</span><h2>Como o dado caminha — e o que o modelo destrava</h2></div>
+      <p class="section-desc">A denúncia percorre um caminho único, do WhatsApp ao Banco de Alvos no SAP. Abaixo, esse percurso ponta a ponta e os ganhos práticos que o modelo entrega já na entrada.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-node">
+        <div class="flow-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg></div>
+        <h5>WhatsApp do usuário</h5>
+        <p>Denúncia conversacional: texto, áudio, foto, vídeo e localização nativa.</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="flow-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h5>Blip Studio</h5>
+        <p>Orquestra a IA, valida os campos, pseudonimiza e gera o protocolo único.</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node sap">
+        <div class="flow-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+        <h5>SAP</h5>
+        <p>Grava a denúncia identificando a instalação do cliente denunciado.</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node sap">
+        <div class="flow-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v6H3zM3 9v12h18V9M7 13h4M7 17h4"/></svg></div>
+        <h5>Data Lake</h5>
+        <p>Tabela do SAP mapeada no Data Lake, padronizada e tabular.</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node sap">
+        <div class="flow-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></div>
+        <h5>Banco de Alvos</h5>
+        <p>Alvos qualificados e priorizados para a operação técnica agir em campo.</p>
+      </div>
+    </div>
+    <p class="flow-note"><strong>Anonimato com rastreabilidade:</strong> a denúncia chega para a Enel sem dado pessoal, mas com hash auditável caso haja necessidade legal — LGPD by design. O <strong>Sentinel monitora a jornada 24/7</strong>, e a triagem por IA garante que só denúncia real abastece o Banco de Alvos.</p>
+
+    <div class="section-head" style="margin-top:54px">
+      <div class="section-title"><span class="section-eyebrow">Ganhos imediatos</span><h2 style="font-size:clamp(21px,2.5vw,29px)">O que o modelo destrava de saída</h2></div>
+      <p class="section-desc">Capacidades nativas do WhatsApp e da plataforma que entram desde o início da operação, sem depender de integrações pesadas.</p>
+    </div>
+    <div class="qw-grid">
+      <div class="qw-card">
+        <span class="qw-tag fast">Nativo</span>
+        <div class="qw-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
+        <h4>Localização nativa do WhatsApp</h4>
+        <p>Habilitar compartilhamento de localização em tempo real elimina o campo "endereço" do formulário web e dispara a precisão geo de imediato.</p>
+      </div>
+      <div class="qw-card">
+        <span class="qw-tag fast">Nativo</span>
+        <div class="qw-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h4>Recepção de foto e vídeo</h4>
+        <p>Transformar evidência visual em campo "obrigatório opcional" — o assistente pede, mas não bloqueia. Aumenta qualidade da denúncia sem aumentar abandono.</p>
+      </div>
+      <div class="qw-card">
+        <span class="qw-tag fast">Nativo</span>
+        <div class="qw-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+        <h4>Áudio + transcrição</h4>
+        <p>Quem teme retaliação prefere falar a digitar. o áudio é transcrito e estruturado, garantindo o mesmo dado de saída do canal por texto.</p>
+      </div>
+      <div class="qw-card">
+        <span class="qw-tag fast">Plataforma</span>
+        <div class="qw-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+        </div>
+        <h4>WhatsApp Flow estruturado</h4>
+        <p>Para usuários que preferem preencher um "mini formulário" sem conversa livre — Flow nativo replicando o formulário Enel atual.</p>
+      </div>
+      <div class="qw-card">
+        <span class="qw-tag fast">Plataforma</span>
+        <div class="qw-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h4>Consulta de status por protocolo</h4>
+        <p>Reduz volume na Ouvidoria e dá ao usuário a sensação de que a denúncia não caiu no vácuo. Reativa a base para outras jornadas.</p>
+      </div>
+      <div class="qw-card">
+        <span class="qw-tag fast">Governança</span>
+        <div class="qw-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="3" y="9" width="18" height="12" rx="2"/></svg>
+        </div>
+        <h4>Anonimato técnico auditável</h4>
+        <p>Camada de pseudonimização no Blip Studio: a denúncia chega para a Enel sem PII, mas com hash auditável caso haja necessidade legal.</p>
+      </div>
+      <div class="qw-card">
+        <span class="qw-tag fast">Governança</span>
+        <div class="qw-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M7 12h10M11 18h2"/></svg></div>
+        <h4>Triagem antes do ticket</h4>
+        <p>Assuntos que não são fraude — 2ª via, religação, atendimento — são reconhecidos e redirecionados, mantendo a base de alvos limpa e tabular.</p>
       </div>
     </div>
   </div>
 
   <div class="footer">
-    Proposta confidencial Blip × Enel · Solutions Consultant: Paulo · Abr 2026
+    Proposta confidencial Blip × Enel · Solutions Consultant: Paulo · Julho 2026
     <br><span class="f-marks"><span>Blip Studio</span><span>WhatsApp Business Platform</span><span>SAP · Data Lake</span><span>Sentinel</span><span>LGPD by design</span></span>
   </div>
 </section>
@@ -2158,27 +2151,103 @@ h1,h2{letter-spacing:-.03em}
     </div>
   </div>
 
-  <!-- CONTATO -->
-  <div class="cta-band">
-    <div class="cta-left">
-      <span class="cta-eyebrow">Contato</span>
-      <h2>Entrar em Contato</h2>
-      <p>Luis Granzioli é o responsável pela conta Enel na Blip. Fale com ele para conversar sobre o projeto.</p>
-      <div class="cta-person">
-        <div class="cta-ava">LG</div>
-        <div><strong>Luis Granzioli</strong><span>Executivo de Contas · Blip</span></div>
-      </div>
-      <a class="cta-btn" href="https://wa.me/5519996670154" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg>Conversar no WhatsApp · +55 19 99667-0154</a>
-    </div>
-    <div class="cta-qr"><svg width="43mm" height="43mm" version="1.1" viewBox="0 0 43 43" xmlns="http://www.w3.org/2000/svg"><path d="M1,1H2V2H1zM2,1H3V2H2zM3,1H4V2H3zM4,1H5V2H4zM5,1H6V2H5zM6,1H7V2H6zM7,1H8V2H7zM12,1H13V2H12zM14,1H15V2H14zM15,1H16V2H15zM17,1H18V2H17zM18,1H19V2H18zM20,1H21V2H20zM22,1H23V2H22zM23,1H24V2H23zM24,1H25V2H24zM26,1H27V2H26zM27,1H28V2H27zM29,1H30V2H29zM31,1H32V2H31zM32,1H33V2H32zM33,1H34V2H33zM35,1H36V2H35zM36,1H37V2H36zM37,1H38V2H37zM38,1H39V2H38zM39,1H40V2H39zM40,1H41V2H40zM41,1H42V2H41zM1,2H2V3H1zM7,2H8V3H7zM10,2H11V3H10zM11,2H12V3H11zM14,2H15V3H14zM15,2H16V3H15zM16,2H17V3H16zM18,2H19V3H18zM22,2H23V3H22zM26,2H27V3H26zM27,2H28V3H27zM28,2H29V3H28zM31,2H32V3H31zM33,2H34V3H33zM35,2H36V3H35zM41,2H42V3H41zM1,3H2V4H1zM3,3H4V4H3zM4,3H5V4H4zM5,3H6V4H5zM7,3H8V4H7zM9,3H10V4H9zM11,3H12V4H11zM12,3H13V4H12zM14,3H15V4H14zM16,3H17V4H16zM18,3H19V4H18zM19,3H20V4H19zM20,3H21V4H20zM22,3H23V4H22zM23,3H24V4H23zM24,3H25V4H24zM26,3H27V4H26zM28,3H29V4H28zM31,3H32V4H31zM33,3H34V4H33zM35,3H36V4H35zM37,3H38V4H37zM38,3H39V4H38zM39,3H40V4H39zM41,3H42V4H41zM1,4H2V5H1zM3,4H4V5H3zM4,4H5V5H4zM5,4H6V5H5zM7,4H8V5H7zM9,4H10V5H9zM10,4H11V5H10zM11,4H12V5H11zM12,4H13V5H12zM13,4H14V5H13zM14,4H15V5H14zM22,4H23V5H22zM24,4H25V5H24zM27,4H28V5H27zM28,4H29V5H28zM29,4H30V5H29zM35,4H36V5H35zM37,4H38V5H37zM38,4H39V5H38zM39,4H40V5H39zM41,4H42V5H41zM1,5H2V6H1zM3,5H4V6H3zM4,5H5V6H4zM5,5H6V6H5zM7,5H8V6H7zM9,5H10V6H9zM10,5H11V6H10zM12,5H13V6H12zM13,5H14V6H13zM15,5H16V6H15zM16,5H17V6H16zM17,5H18V6H17zM19,5H20V6H19zM21,5H22V6H21zM23,5H24V6H23zM24,5H25V6H24zM26,5H27V6H26zM31,5H32V6H31zM32,5H33V6H32zM35,5H36V6H35zM37,5H38V6H37zM38,5H39V6H38zM39,5H40V6H39zM41,5H42V6H41zM1,6H2V7H1zM7,6H8V7H7zM9,6H10V7H9zM10,6H11V7H10zM11,6H12V7H11zM12,6H13V7H12zM13,6H14V7H13zM14,6H15V7H14zM15,6H16V7H15zM19,6H20V7H19zM22,6H23V7H22zM25,6H26V7H25zM26,6H27V7H26zM27,6H28V7H27zM28,6H29V7H28zM29,6H30V7H29zM30,6H31V7H30zM35,6H36V7H35zM41,6H42V7H41zM1,7H2V8H1zM2,7H3V8H2zM3,7H4V8H3zM4,7H5V8H4zM5,7H6V8H5zM6,7H7V8H6zM7,7H8V8H7zM9,7H10V8H9zM11,7H12V8H11zM13,7H14V8H13zM15,7H16V8H15zM17,7H18V8H17zM19,7H20V8H19zM21,7H22V8H21zM23,7H24V8H23zM25,7H26V8H25zM27,7H28V8H27zM29,7H30V8H29zM31,7H32V8H31zM33,7H34V8H33zM35,7H36V8H35zM36,7H37V8H36zM37,7H38V8H37zM38,7H39V8H38zM39,7H40V8H39zM40,7H41V8H40zM41,7H42V8H41zM9,8H10V9H9zM10,8H11V9H10zM11,8H12V9H11zM12,8H13V9H12zM14,8H15V9H14zM15,8H16V9H15zM17,8H18V9H17zM19,8H20V9H19zM20,8H21V9H20zM22,8H23V9H22zM23,8H24V9H23zM27,8H28V9H27zM28,8H29V9H28zM33,8H34V9H33zM1,9H2V10H1zM3,9H4V10H3zM4,9H5V10H4zM5,9H6V10H5zM6,9H7V10H6zM7,9H8V10H7zM11,9H12V10H11zM12,9H13V10H12zM13,9H14V10H13zM14,9H15V10H14zM15,9H16V10H15zM18,9H19V10H18zM19,9H20V10H19zM21,9H22V10H21zM24,9H25V10H24zM26,9H27V10H26zM28,9H29V10H28zM30,9H31V10H30zM32,9H33V10H32zM33,9H34V10H33zM35,9H36V10H35zM36,9H37V10H36zM37,9H38V10H37zM38,9H39V10H38zM39,9H40V10H39zM1,10H2V11H1zM4,10H5V11H4zM5,10H6V11H5zM8,10H9V11H8zM11,10H12V11H11zM12,10H13V11H12zM20,10H21V11H20zM22,10H23V11H22zM23,10H24V11H23zM24,10H25V11H24zM25,10H26V11H25zM27,10H28V11H27zM31,10H32V11H31zM32,10H33V11H32zM33,10H34V11H33zM35,10H36V11H35zM37,10H38V11H37zM39,10H40V11H39zM40,10H41V11H40zM41,10H42V11H41zM1,11H2V12H1zM5,11H6V12H5zM6,11H7V12H6zM7,11H8V12H7zM9,11H10V12H9zM12,11H13V12H12zM13,11H14V12H13zM14,11H15V12H14zM18,11H19V12H18zM19,11H20V12H19zM21,11H22V12H21zM22,11H23V12H22zM23,11H24V12H23zM28,11H29V12H28zM29,11H30V12H29zM33,11H34V12H33zM34,11H35V12H34zM36,11H37V12H36zM37,11H38V12H37zM1,12H2V13H1zM3,12H4V13H3zM5,12H6V13H5zM6,12H7V13H6zM11,12H12V13H11zM15,12H16V13H15zM17,12H18V13H17zM20,12H21V13H20zM21,12H22V13H21zM22,12H23V13H22zM23,12H24V13H23zM25,12H26V13H25zM27,12H28V13H27zM28,12H29V13H28zM29,12H30V13H29zM32,12H33V13H32zM33,12H34V13H33zM34,12H35V13H34zM36,12H37V13H36zM37,12H38V13H37zM38,12H39V13H38zM3,13H4V14H3zM4,13H5V14H4zM7,13H8V14H7zM8,13H9V14H8zM10,13H11V14H10zM11,13H12V14H11zM16,13H17V14H16zM17,13H18V14H17zM18,13H19V14H18zM19,13H20V14H19zM21,13H22V14H21zM23,13H24V14H23zM24,13H25V14H24zM25,13H26V14H25zM26,13H27V14H26zM28,13H29V14H28zM32,13H33V14H32zM33,13H34V14H33zM36,13H37V14H36zM38,13H39V14H38zM39,13H40V14H39zM1,14H2V15H1zM3,14H4V15H3zM4,14H5V15H4zM6,14H7V15H6zM9,14H10V15H9zM10,14H11V15H10zM11,14H12V15H11zM12,14H13V15H12zM17,14H18V15H17zM19,14H20V15H19zM22,14H23V15H22zM28,14H29V15H28zM30,14H31V15H30zM31,14H32V15H31zM32,14H33V15H32zM35,14H36V15H35zM36,14H37V15H36zM37,14H38V15H37zM38,14H39V15H38zM39,14H40V15H39zM41,14H42V15H41zM1,15H2V16H1zM4,15H5V16H4zM6,15H7V16H6zM7,15H8V16H7zM8,15H9V16H8zM9,15H10V16H9zM10,15H11V16H10zM13,15H14V16H13zM15,15H16V16H15zM16,15H17V16H16zM17,15H18V16H17zM19,15H20V16H19zM21,15H22V16H21zM24,15H25V16H24zM25,15H26V16H25zM28,15H29V16H28zM34,15H35V16H34zM37,15H38V16H37zM38,15H39V16H38zM39,15H40V16H39zM4,16H5V17H4zM10,16H11V17H10zM15,16H16V17H15zM16,16H17V17H16zM19,16H20V17H19zM22,16H23V17H22zM23,16H24V17H23zM24,16H25V17H24zM28,16H29V17H28zM31,16H32V17H31zM32,16H33V17H32zM35,16H36V17H35zM38,16H39V17H38zM40,16H41V17H40zM1,17H2V18H1zM5,17H6V18H5zM6,17H7V18H6zM7,17H8V18H7zM8,17H9V18H8zM9,17H10V18H9zM10,17H11V18H10zM12,17H13V18H12zM13,17H14V18H13zM21,17H22V18H21zM23,17H24V18H23zM24,17H25V18H24zM25,17H26V18H25zM26,17H27V18H26zM27,17H28V18H27zM28,17H29V18H28zM29,17H30V18H29zM30,17H31V18H30zM34,17H35V18H34zM36,17H37V18H36zM38,17H39V18H38zM39,17H40V18H39zM40,17H41V18H40zM2,18H3V19H2zM3,18H4V19H3zM5,18H6V19H5zM9,18H10V19H9zM12,18H13V19H12zM13,18H14V19H13zM16,18H17V19H16zM19,18H20V19H19zM20,18H21V19H20zM23,18H24V19H23zM24,18H25V19H24zM27,18H28V19H27zM31,18H32V19H31zM32,18H33V19H32zM33,18H34V19H33zM35,18H36V19H35zM36,18H37V19H36zM37,18H38V19H37zM38,18H39V19H38zM41,18H42V19H41zM1,19H2V20H1zM3,19H4V20H3zM4,19H5V20H4zM7,19H8V20H7zM10,19H11V20H10zM12,19H13V20H12zM14,19H15V20H14zM15,19H16V20H15zM17,19H18V20H17zM19,19H20V20H19zM21,19H22V20H21zM23,19H24V20H23zM25,19H26V20H25zM28,19H29V20H28zM30,19H31V20H30zM31,19H32V20H31zM37,19H38V20H37zM39,19H40V20H39zM40,19H41V20H40zM6,20H7V21H6zM10,20H11V21H10zM12,20H13V21H12zM17,20H18V21H17zM21,20H22V21H21zM25,20H26V21H25zM27,20H28V21H27zM31,20H32V21H31zM34,20H35V21H34zM37,20H38V21H37zM38,20H39V21H38zM40,20H41V21H40zM2,21H3V22H2zM3,21H4V22H3zM4,21H5V22H4zM5,21H6V22H5zM7,21H8V22H7zM9,21H10V22H9zM10,21H11V22H10zM12,21H13V22H12zM13,21H14V22H13zM14,21H15V22H14zM16,21H17V22H16zM19,21H20V22H19zM21,21H22V22H21zM22,21H23V22H22zM23,21H24V22H23zM25,21H26V22H25zM28,21H29V22H28zM30,21H31V22H30zM34,21H35V22H34zM36,21H37V22H36zM39,21H40V22H39zM1,22H2V23H1zM3,22H4V23H3zM4,22H5V23H4zM6,22H7V23H6zM9,22H10V23H9zM14,22H15V23H14zM20,22H21V23H20zM27,22H28V23H27zM28,22H29V23H28zM29,22H30V23H29zM31,22H32V23H31zM32,22H33V23H32zM33,22H34V23H33zM35,22H36V23H35zM37,22H38V23H37zM38,22H39V23H38zM39,22H40V23H39zM40,22H41V23H40zM41,22H42V23H41zM1,23H2V24H1zM3,23H4V24H3zM4,23H5V24H4zM7,23H8V24H7zM8,23H9V24H8zM14,23H15V24H14zM16,23H17V24H16zM17,23H18V24H17zM19,23H20V24H19zM21,23H22V24H21zM22,23H23V24H22zM25,23H26V24H25zM27,23H28V24H27zM28,23H29V24H28zM29,23H30V24H29zM31,23H32V24H31zM33,23H34V24H33zM34,23H35V24H34zM3,24H4V25H3zM4,24H5V25H4zM10,24H11V25H10zM12,24H13V25H12zM14,24H15V25H14zM15,24H16V25H15zM21,24H22V25H21zM22,24H23V25H22zM23,24H24V25H23zM25,24H26V25H25zM27,24H28V25H27zM28,24H29V25H28zM29,24H30V25H29zM32,24H33V25H32zM33,24H34V25H33zM34,24H35V25H34zM35,24H36V25H35zM37,24H38V25H37zM1,25H2V26H1zM2,25H3V26H2zM3,25H4V26H3zM4,25H5V26H4zM5,25H6V26H5zM6,25H7V26H6zM7,25H8V26H7zM8,25H9V26H8zM11,25H12V26H11zM12,25H13V26H12zM14,25H15V26H14zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM19,25H20V26H19zM21,25H22V26H21zM26,25H27V26H26zM28,25H29V26H28zM30,25H31V26H30zM31,25H32V26H31zM32,25H33V26H32zM34,25H35V26H34zM39,25H40V26H39zM41,25H42V26H41zM1,26H2V27H1zM2,26H3V27H2zM4,26H5V27H4zM5,26H6V27H5zM6,26H7V27H6zM8,26H9V27H8zM9,26H10V27H9zM11,26H12V27H11zM12,26H13V27H12zM13,26H14V27H13zM14,26H15V27H14zM16,26H17V27H16zM17,26H18V27H17zM20,26H21V27H20zM23,26H24V27H23zM24,26H25V27H24zM25,26H26V27H25zM27,26H28V27H27zM29,26H30V27H29zM31,26H32V27H31zM32,26H33V27H32zM35,26H36V27H35zM37,26H38V27H37zM38,26H39V27H38zM40,26H41V27H40zM41,26H42V27H41zM2,27H3V28H2zM3,27H4V28H3zM5,27H6V28H5zM7,27H8V28H7zM9,27H10V28H9zM10,27H11V28H10zM11,27H12V28H11zM13,27H14V28H13zM17,27H18V28H17zM22,27H23V28H22zM27,27H28V28H27zM28,27H29V28H28zM29,27H30V28H29zM30,27H31V28H30zM31,27H32V28H31zM33,27H34V28H33zM34,27H35V28H34zM35,27H36V28H35zM36,27H37V28H36zM37,27H38V28H37zM1,28H2V29H1zM2,28H3V29H2zM4,28H5V29H4zM6,28H7V29H6zM14,28H15V29H14zM16,28H17V29H16zM17,28H18V29H17zM20,28H21V29H20zM21,28H22V29H21zM22,28H23V29H22zM23,28H24V29H23zM25,28H26V29H25zM27,28H28V29H27zM28,28H29V29H28zM29,28H30V29H29zM32,28H33V29H32zM33,28H34V29H33zM34,28H35V29H34zM36,28H37V29H36zM38,28H39V29H38zM40,28H41V29H40zM41,28H42V29H41zM1,29H2V30H1zM2,29H3V30H2zM3,29H4V30H3zM4,29H5V30H4zM5,29H6V30H5zM6,29H7V30H6zM7,29H8V30H7zM8,29H9V30H8zM10,29H11V30H10zM11,29H12V30H11zM12,29H13V30H12zM13,29H14V30H13zM14,29H15V30H14zM15,29H16V30H15zM17,29H18V30H17zM18,29H19V30H18zM19,29H20V30H19zM23,29H24V30H23zM26,29H27V30H26zM29,29H30V30H29zM30,29H31V30H30zM31,29H32V30H31zM32,29H33V30H32zM33,29H34V30H33zM34,29H35V30H34zM36,29H37V30H36zM38,29H39V30H38zM39,29H40V30H39zM41,29H42V30H41zM1,30H2V31H1zM5,30H6V31H5zM8,30H9V31H8zM9,30H10V31H9zM13,30H14V31H13zM14,30H15V31H14zM15,30H16V31H15zM16,30H17V31H16zM21,30H22V31H21zM22,30H23V31H22zM23,30H24V31H23zM25,30H26V31H25zM27,30H28V31H27zM29,30H30V31H29zM32,30H33V31H32zM34,30H35V31H34zM35,30H36V31H35zM36,30H37V31H36zM37,30H38V31H37zM38,30H39V31H38zM41,30H42V31H41zM1,31H2V32H1zM3,31H4V32H3zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM7,31H8V32H7zM8,31H9V32H8zM12,31H13V32H12zM15,31H16V32H15zM16,31H17V32H16zM17,31H18V32H17zM20,31H21V32H20zM22,31H23V32H22zM23,31H24V32H23zM26,31H27V32H26zM28,31H29V32H28zM29,31H30V32H29zM31,31H32V32H31zM33,31H34V32H33zM34,31H35V32H34zM35,31H36V32H35zM36,31H37V32H36zM37,31H38V32H37zM40,31H41V32H40zM1,32H2V33H1zM10,32H11V33H10zM11,32H12V33H11zM14,32H15V33H14zM16,32H17V33H16zM17,32H18V33H17zM20,32H21V33H20zM21,32H22V33H21zM22,32H23V33H22zM25,32H26V33H25zM28,32H29V33H28zM33,32H34V33H33zM34,32H35V33H34zM35,32H36V33H35zM36,32H37V33H36zM37,32H38V33H37zM38,32H39V33H38zM40,32H41V33H40zM41,32H42V33H41zM1,33H2V34H1zM5,33H6V34H5zM7,33H8V34H7zM10,33H11V34H10zM18,33H19V34H18zM20,33H21V34H20zM23,33H24V34H23zM26,33H27V34H26zM27,33H28V34H27zM29,33H30V34H29zM30,33H31V34H30zM31,33H32V34H31zM33,33H34V34H33zM34,33H35V34H34zM35,33H36V34H35zM36,33H37V34H36zM37,33H38V34H37zM39,33H40V34H39zM40,33H41V34H40zM9,34H10V35H9zM10,34H11V35H10zM16,34H17V35H16zM17,34H18V35H17zM18,34H19V35H18zM19,34H20V35H19zM20,34H21V35H20zM22,34H23V35H22zM24,34H25V35H24zM26,34H27V35H26zM30,34H31V35H30zM31,34H32V35H31zM32,34H33V35H32zM33,34H34V35H33zM37,34H38V35H37zM39,34H40V35H39zM41,34H42V35H41zM1,35H2V36H1zM2,35H3V36H2zM3,35H4V36H3zM4,35H5V36H4zM5,35H6V36H5zM6,35H7V36H6zM7,35H8V36H7zM12,35H13V36H12zM15,35H16V36H15zM16,35H17V36H16zM18,35H19V36H18zM21,35H22V36H21zM22,35H23V36H22zM26,35H27V36H26zM27,35H28V36H27zM28,35H29V36H28zM29,35H30V36H29zM32,35H33V36H32zM33,35H34V36H33zM35,35H36V36H35zM37,35H38V36H37zM38,35H39V36H38zM40,35H41V36H40zM1,36H2V37H1zM7,36H8V37H7zM9,36H10V37H9zM12,36H13V37H12zM15,36H16V37H15zM18,36H19V37H18zM19,36H20V37H19zM22,36H23V37H22zM23,36H24V37H23zM24,36H25V37H24zM26,36H27V37H26zM28,36H29V37H28zM29,36H30V37H29zM31,36H32V37H31zM32,36H33V37H32zM33,36H34V37H33zM37,36H38V37H37zM38,36H39V37H38zM1,37H2V38H1zM3,37H4V38H3zM4,37H5V38H4zM5,37H6V38H5zM7,37H8V38H7zM9,37H10V38H9zM16,37H17V38H16zM22,37H23V38H22zM24,37H25V38H24zM27,37H28V38H27zM28,37H29V38H28zM30,37H31V38H30zM33,37H34V38H33zM34,37H35V38H34zM35,37H36V38H35zM36,37H37V38H36zM37,37H38V38H37zM39,37H40V38H39zM1,38H2V39H1zM3,38H4V39H3zM4,38H5V39H4zM5,38H6V39H5zM7,38H8V39H7zM9,38H10V39H9zM10,38H11V39H10zM13,38H14V39H13zM14,38H15V39H14zM19,38H20V39H19zM20,38H21V39H20zM22,38H23V39H22zM23,38H24V39H23zM24,38H25V39H24zM25,38H26V39H25zM30,38H31V39H30zM31,38H32V39H31zM34,38H35V39H34zM36,38H37V39H36zM38,38H39V39H38zM1,39H2V40H1zM3,39H4V40H3zM4,39H5V40H4zM5,39H6V40H5zM7,39H8V40H7zM9,39H10V40H9zM11,39H12V40H11zM15,39H16V40H15zM17,39H18V40H17zM21,39H22V40H21zM23,39H24V40H23zM25,39H26V40H25zM27,39H28V40H27zM28,39H29V40H28zM29,39H30V40H29zM30,39H31V40H30zM34,39H35V40H34zM35,39H36V40H35zM36,39H37V40H36zM37,39H38V40H37zM38,39H39V40H38zM1,40H2V41H1zM7,40H8V41H7zM10,40H11V41H10zM12,40H13V41H12zM13,40H14V41H13zM15,40H16V41H15zM17,40H18V41H17zM18,40H19V41H18zM19,40H20V41H19zM20,40H21V41H20zM22,40H23V41H22zM24,40H25V41H24zM25,40H26V41H25zM27,40H28V41H27zM31,40H32V41H31zM35,40H36V41H35zM37,40H38V41H37zM40,40H41V41H40zM1,41H2V42H1zM2,41H3V42H2zM3,41H4V42H3zM4,41H5V42H4zM5,41H6V42H5zM6,41H7V42H6zM7,41H8V42H7zM9,41H10V42H9zM10,41H11V42H10zM13,41H14V42H13zM16,41H17V42H16zM21,41H22V42H21zM26,41H27V42H26zM28,41H29V42H28zM30,41H31V42H30zM32,41H33V42H32zM36,41H37V42H36zM37,41H38V42H37zM38,41H39V42H38zM39,41H40V42H39z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg><span>Aponte a câmera</span></div>
-  </div>
-
-
   <div class="footer">
-    Mockups navegáveis · Discovery Enel × Blip · Abr 2026
+    Mockups navegáveis · Discovery Enel × Blip · Julho 2026
     <br><span class="f-marks"><span>WhatsApp Business Platform</span><span>Blip Studio</span><span>WhatsApp Flows</span><span>Google Photos</span></span>
   </div>
 </section>
+
+<!-- ============================================ -->
+<!-- ============ TAB 3 — CONCLUSÃO ============= -->
+<!-- ============================================ -->
+<section class="panel" id="tab-conclusao" role="tabpanel">
+
+  <!-- CALCULADORA -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title"><span class="section-eyebrow">Projeção</span><h2>O tamanho da economia operacional</h2></div>
+      <p class="section-desc">Modelo ilustrativo da economia ao reduzir visitas improdutivas com denúncias qualificadas e geolocalizadas. Ajuste as premissas — os números recalculam ao vivo. A calibração final é feita no discovery, com a auditoria de visitas da Enel.</p>
+    </div>
+
+    <div class="calc">
+      <div class="calc-inputs">
+        <div class="calc-group">
+          <div class="cg-head">Volume de denúncias</div>
+          <div class="cg-fixed">Cobertura fixa: <strong>3 distribuidoras — SP · RJ · CE</strong></div>
+          <label class="cg-row"><span>Denúncias/dia por DX</span><input type="range" id="c_den" min="1" max="60" value="10"><b id="v_den">10</b></label>
+          <label class="cg-row"><span>Taxa de conversão em OS (%)</span><input type="range" id="c_conv" min="0" max="100" value="100"><b id="v_conv">100%</b></label>
+        </div>
+        <div class="calc-group">
+          <div class="cg-head">Custos de campo</div>
+          <label class="cg-row"><span>Custo por visita de campo (R$)</span><input type="range" id="c_cost" min="50" max="800" step="10" value="250"><b id="v_cost">R$ 250</b></label>
+          <label class="cg-row"><span>Taxa de improdutividade atual (%)</span><input type="range" id="c_improd" min="0" max="100" value="88"><b id="v_improd">88%</b></label>
+          <label class="cg-row"><span>Redução esperada c/ melhoria (%)</span><input type="range" id="c_red" min="0" max="100" value="40"><b id="v_red">40%</b></label>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <span class="cr-eyebrow">Resultado mensal estimado</span>
+        <div class="cr-main">
+          <div class="cr-block">
+            <span class="cr-lbl">Economia mensal com denúncias qualificadas</span>
+            <div class="cr-big" id="r_mes">R$ 79.250</div>
+            <span class="cr-pill" id="r_evit">+317 visitas evitadas/mês</span>
+          </div>
+          <div class="cr-block">
+            <span class="cr-lbl">Economia anual projetada</span>
+            <div class="cr-big" id="r_ano">R$ 951.000</div>
+            <span class="cr-range" id="r_range">faixa conservadora–otimista: R$ 713 mil – R$ 1,19 mi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-stats">
+        <div class="cstat"><span class="cs-lbl">OS abertas/mês (total)</span><div class="cs-num" id="s_os">900</div><span class="cs-foot">antes da melhoria</span></div>
+        <div class="cstat"><span class="cs-lbl">Visitas improd./mês (atual)</span><div class="cs-num" id="s_improd">792</div><span class="cs-foot">custo desperdiçado</span></div>
+        <div class="cstat"><span class="cs-lbl">Visitas evitadas/mês</span><div class="cs-num accent" id="s_evit">317</div><span class="cs-foot">após qualificação</span></div>
+        <div class="cstat"><span class="cs-lbl">Custo improd. atual/mês</span><div class="cs-num" id="s_cost">R$ 198.000</div><span class="cs-foot">total desperdiçado</span></div>
+      </div>
+
+      <div class="calc-bars">
+        <div class="cb-title">Comparativo de visitas improdutivas — antes × depois</div>
+        <div class="cb-row"><span class="cb-lbl">Antes</span><div class="cb-track"><div class="cb-fill before" id="bar_before" style="width:100%"></div></div><span class="cb-val" id="bar_before_v">792 improd.</span></div>
+        <div class="cb-row"><span class="cb-lbl">Depois</span><div class="cb-track"><div class="cb-fill after" id="bar_after" style="width:60%"></div></div><span class="cb-val" id="bar_after_v">475 improd.</span></div>
+      </div>
+
+      <p class="calc-note">Premissas ilustrativas — não constituem proposta comercial. Volume, custo de visita e taxas a validar com a Enel no discovery (auditoria de visitas).</p>
+    </div>
+  </div>
+
+  <!-- PRÓXIMOS PASSOS (fases) -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title"><span class="section-eyebrow">Próximos passos</span><h2>As próximas duas fases</h2></div>
+      <p class="section-desc">Duas frentes para avançar: validar a experiência com a demo ao vivo e estruturar o desenvolvimento com a BIA REQ.</p>
+    </div>
+    <div class="phase-2">
+      <div class="cta-box phase-box">
+        <div class="ph-head"><span class="ph-badge">Fase 01</span><span class="cta-eyebrow live" style="margin:0">Demo ao vivo</span></div>
+        <h3>Testar a demo ao vivo</h3>
+        <p>Experimente a jornada conversacional no WhatsApp. Aponte a câmera no QR Code para conversar direto no app. <strong>Disponível até 15 de julho.</strong></p>
+        <div class="cta-foot">
+          <div class="cta-qr-sm"><svg width="43mm" height="43mm" version="1.1" viewBox="0 0 43 43" xmlns="http://www.w3.org/2000/svg"><path d="M1,1H2V2H1zM2,1H3V2H2zM3,1H4V2H3zM4,1H5V2H4zM5,1H6V2H5zM6,1H7V2H6zM7,1H8V2H7zM10,1H11V2H10zM11,1H12V2H11zM15,1H16V2H15zM17,1H18V2H17zM19,1H20V2H19zM20,1H21V2H20zM21,1H22V2H21zM24,1H25V2H24zM25,1H26V2H25zM29,1H30V2H29zM30,1H31V2H30zM31,1H32V2H31zM32,1H33V2H32zM33,1H34V2H33zM35,1H36V2H35zM36,1H37V2H36zM37,1H38V2H37zM38,1H39V2H38zM39,1H40V2H39zM40,1H41V2H40zM41,1H42V2H41zM1,2H2V3H1zM7,2H8V3H7zM13,2H14V3H13zM14,2H15V3H14zM16,2H17V3H16zM17,2H18V3H17zM19,2H20V3H19zM21,2H22V3H21zM23,2H24V3H23zM28,2H29V3H28zM31,2H32V3H31zM35,2H36V3H35zM41,2H42V3H41zM1,3H2V4H1zM3,3H4V4H3zM4,3H5V4H4zM5,3H6V4H5zM7,3H8V4H7zM9,3H10V4H9zM10,3H11V4H10zM17,3H18V4H17zM20,3H21V4H20zM24,3H25V4H24zM25,3H26V4H25zM27,3H28V4H27zM28,3H29V4H28zM29,3H30V4H29zM33,3H34V4H33zM35,3H36V4H35zM37,3H38V4H37zM38,3H39V4H38zM39,3H40V4H39zM41,3H42V4H41zM1,4H2V5H1zM3,4H4V5H3zM4,4H5V5H4zM5,4H6V5H5zM7,4H8V5H7zM9,4H10V5H9zM11,4H12V5H11zM13,4H14V5H13zM14,4H15V5H14zM15,4H16V5H15zM16,4H17V5H16zM19,4H20V5H19zM22,4H23V5H22zM23,4H24V5H23zM25,4H26V5H25zM28,4H29V5H28zM29,4H30V5H29zM35,4H36V5H35zM37,4H38V5H37zM38,4H39V5H38zM39,4H40V5H39zM41,4H42V5H41zM1,5H2V6H1zM3,5H4V6H3zM4,5H5V6H4zM5,5H6V6H5zM7,5H8V6H7zM9,5H10V6H9zM10,5H11V6H10zM13,5H14V6H13zM15,5H16V6H15zM18,5H19V6H18zM20,5H21V6H20zM21,5H22V6H21zM24,5H25V6H24zM26,5H27V6H26zM27,5H28V6H27zM31,5H32V6H31zM32,5H33V6H32zM33,5H34V6H33zM35,5H36V6H35zM37,5H38V6H37zM38,5H39V6H38zM39,5H40V6H39zM41,5H42V6H41zM1,6H2V7H1zM7,6H8V7H7zM9,6H10V7H9zM13,6H14V7H13zM14,6H15V7H14zM17,6H18V7H17zM19,6H20V7H19zM22,6H23V7H22zM25,6H26V7H25zM26,6H27V7H26zM27,6H28V7H27zM28,6H29V7H28zM30,6H31V7H30zM33,6H34V7H33zM35,6H36V7H35zM41,6H42V7H41zM1,7H2V8H1zM2,7H3V8H2zM3,7H4V8H3zM4,7H5V8H4zM5,7H6V8H5zM6,7H7V8H6zM7,7H8V8H7zM9,7H10V8H9zM11,7H12V8H11zM13,7H14V8H13zM15,7H16V8H15zM17,7H18V8H17zM19,7H20V8H19zM21,7H22V8H21zM23,7H24V8H23zM25,7H26V8H25zM27,7H28V8H27zM29,7H30V8H29zM31,7H32V8H31zM33,7H34V8H33zM35,7H36V8H35zM36,7H37V8H36zM37,7H38V8H37zM38,7H39V8H38zM39,7H40V8H39zM40,7H41V8H40zM41,7H42V8H41zM9,8H10V9H9zM10,8H11V9H10zM11,8H12V9H11zM12,8H13V9H12zM13,8H14V9H13zM15,8H16V9H15zM17,8H18V9H17zM19,8H20V9H19zM22,8H23V9H22zM23,8H24V9H23zM27,8H28V9H27zM33,8H34V9H33zM1,9H2V10H1zM3,9H4V10H3zM4,9H5V10H4zM5,9H6V10H5zM6,9H7V10H6zM7,9H8V10H7zM10,9H11V10H10zM11,9H12V10H11zM12,9H13V10H12zM14,9H15V10H14zM17,9H18V10H17zM18,9H19V10H18zM19,9H20V10H19zM21,9H22V10H21zM26,9H27V10H26zM28,9H29V10H28zM30,9H31V10H30zM33,9H34V10H33zM35,9H36V10H35zM36,9H37V10H36zM37,9H38V10H37zM38,9H39V10H38zM39,9H40V10H39zM1,10H2V11H1zM2,10H3V11H2zM3,10H4V11H3zM4,10H5V11H4zM5,10H6V11H5zM8,10H9V11H8zM9,10H10V11H9zM11,10H12V11H11zM12,10H13V11H12zM13,10H14V11H13zM14,10H15V11H14zM20,10H21V11H20zM22,10H23V11H22zM23,10H24V11H23zM24,10H25V11H24zM25,10H26V11H25zM27,10H28V11H27zM31,10H32V11H31zM32,10H33V11H32zM33,10H34V11H33zM34,10H35V11H34zM35,10H36V11H35zM37,10H38V11H37zM39,10H40V11H39zM41,10H42V11H41zM2,11H3V12H2zM7,11H8V12H7zM9,11H10V12H9zM10,11H11V12H10zM13,11H14V12H13zM17,11H18V12H17zM19,11H20V12H19zM21,11H22V12H21zM22,11H23V12H22zM28,11H29V12H28zM29,11H30V12H29zM33,11H34V12H33zM35,11H36V12H35zM36,11H37V12H36zM40,11H41V12H40zM2,12H3V13H2zM4,12H5V13H4zM5,12H6V13H5zM9,12H10V13H9zM13,12H14V13H13zM15,12H16V13H15zM16,12H17V13H16zM17,12H18V13H17zM22,12H23V13H22zM23,12H24V13H23zM25,12H26V13H25zM28,12H29V13H28zM29,12H30V13H29zM32,12H33V13H32zM33,12H34V13H33zM36,12H37V13H36zM38,12H39V13H38zM40,12H41V13H40zM41,12H42V13H41zM2,13H3V14H2zM4,13H5V14H4zM7,13H8V14H7zM8,13H9V14H8zM9,13H10V14H9zM10,13H11V14H10zM11,13H12V14H11zM12,13H13V14H12zM14,13H15V14H14zM18,13H19V14H18zM19,13H20V14H19zM20,13H21V14H20zM23,13H24V14H23zM26,13H27V14H26zM27,13H28V14H27zM28,13H29V14H28zM30,13H31V14H30zM32,13H33V14H32zM34,13H35V14H34zM36,13H37V14H36zM38,13H39V14H38zM39,13H40V14H39zM40,13H41V14H40zM1,14H2V15H1zM3,14H4V15H3zM5,14H6V15H5zM10,14H11V15H10zM16,14H17V15H16zM18,14H19V15H18zM19,14H20V15H19zM21,14H22V15H21zM22,14H23V15H22zM23,14H24V15H23zM25,14H26V15H25zM27,14H28V15H27zM28,14H29V15H28zM29,14H30V15H29zM33,14H34V15H33zM34,14H35V15H34zM35,14H36V15H35zM36,14H37V15H36zM37,14H38V15H37zM38,14H39V15H38zM39,14H40V15H39zM40,14H41V15H40zM2,15H3V16H2zM4,15H5V16H4zM5,15H6V16H5zM6,15H7V16H6zM7,15H8V16H7zM8,15H9V16H8zM10,15H11V16H10zM11,15H12V16H11zM12,15H13V16H12zM19,15H20V16H19zM20,15H21V16H20zM22,15H23V16H22zM23,15H24V16H23zM27,15H28V16H27zM34,15H35V16H34zM37,15H38V16H37zM38,15H39V16H38zM39,15H40V16H39zM1,16H2V17H1zM2,16H3V17H2zM4,16H5V17H4zM6,16H7V17H6zM8,16H9V17H8zM9,16H10V17H9zM15,16H16V17H15zM16,16H17V17H16zM17,16H18V17H17zM20,16H21V17H20zM21,16H22V17H21zM22,16H23V17H22zM23,16H24V17H23zM25,16H26V17H25zM27,16H28V17H27zM29,16H30V17H29zM35,16H36V17H35zM38,16H39V17H38zM40,16H41V17H40zM2,17H3V18H2zM5,17H6V18H5zM7,17H8V18H7zM9,17H10V18H9zM10,17H11V18H10zM14,17H15V18H14zM18,17H19V18H18zM20,17H21V18H20zM22,17H23V18H22zM23,17H24V18H23zM26,17H27V18H26zM27,17H28V18H27zM30,17H31V18H30zM31,17H32V18H31zM34,17H35V18H34zM36,17H37V18H36zM38,17H39V18H38zM39,17H40V18H39zM40,17H41V18H40zM1,18H2V19H1zM2,18H3V19H2zM5,18H6V19H5zM6,18H7V19H6zM8,18H9V19H8zM11,18H12V19H11zM14,18H15V19H14zM16,18H17V19H16zM17,18H18V19H17zM18,18H19V19H18zM19,18H20V19H19zM20,18H21V19H20zM21,18H22V19H21zM22,18H23V19H22zM24,18H25V19H24zM25,18H26V19H25zM26,18H27V19H26zM28,18H29V19H28zM29,18H30V19H29zM31,18H32V19H31zM32,18H33V19H32zM33,18H34V19H33zM35,18H36V19H35zM36,18H37V19H36zM37,18H38V19H37zM38,18H39V19H38zM41,18H42V19H41zM2,19H3V20H2zM3,19H4V20H3zM4,19H5V20H4zM7,19H8V20H7zM8,19H9V20H8zM9,19H10V20H9zM11,19H12V20H11zM12,19H13V20H12zM15,19H16V20H15zM16,19H17V20H16zM18,19H19V20H18zM22,19H23V20H22zM26,19H27V20H26zM27,19H28V20H27zM28,19H29V20H28zM31,19H32V20H31zM37,19H38V20H37zM40,19H41V20H40zM1,20H2V21H1zM2,20H3V21H2zM3,20H4V21H3zM4,20H5V21H4zM5,20H6V21H5zM6,20H7V21H6zM9,20H10V21H9zM10,20H11V21H10zM15,20H16V21H15zM18,20H19V21H18zM19,20H20V21H19zM20,20H21V21H20zM21,20H22V21H21zM22,20H23V21H22zM23,20H24V21H23zM24,20H25V21H24zM25,20H26V21H25zM26,20H27V21H26zM28,20H29V21H28zM34,20H35V21H34zM37,20H38V21H37zM38,20H39V21H38zM40,20H41V21H40zM41,20H42V21H41zM1,21H2V22H1zM2,21H3V22H2zM5,21H6V22H5zM6,21H7V22H6zM7,21H8V22H7zM10,21H11V22H10zM13,21H14V22H13zM16,21H17V22H16zM20,21H21V22H20zM21,21H22V22H21zM22,21H23V22H22zM27,21H28V22H27zM28,21H29V22H28zM29,21H30V22H29zM31,21H32V22H31zM33,21H34V22H33zM34,21H35V22H34zM39,21H40V22H39zM5,22H6V23H5zM8,22H9V23H8zM9,22H10V23H9zM11,22H12V23H11zM13,22H14V23H13zM15,22H16V23H15zM17,22H18V23H17zM19,22H20V23H19zM20,22H21V23H20zM23,22H24V23H23zM24,22H25V23H24zM31,22H32V23H31zM32,22H33V23H32zM33,22H34V23H33zM35,22H36V23H35zM36,22H37V23H36zM37,22H38V23H37zM40,22H41V23H40zM41,22H42V23H41zM1,23H2V24H1zM2,23H3V24H2zM4,23H5V24H4zM5,23H6V24H5zM6,23H7V24H6zM7,23H8V24H7zM9,23H10V24H9zM10,23H11V24H10zM12,23H13V24H12zM16,23H17V24H16zM17,23H18V24H17zM19,23H20V24H19zM22,23H23V24H22zM27,23H28V24H27zM28,23H29V24H28zM29,23H30V24H29zM31,23H32V24H31zM33,23H34V24H33zM36,23H37V24H36zM2,24H3V25H2zM3,24H4V25H3zM5,24H6V25H5zM8,24H9V25H8zM10,24H11V25H10zM11,24H12V25H11zM12,24H13V25H12zM13,24H14V25H13zM14,24H15V25H14zM15,24H16V25H15zM19,24H20V25H19zM20,24H21V25H20zM22,24H23V25H22zM23,24H24V25H23zM24,24H25V25H24zM25,24H26V25H25zM27,24H28V25H27zM28,24H29V25H28zM29,24H30V25H29zM36,24H37V25H36zM38,24H39V25H38zM40,24H41V25H40zM41,24H42V25H41zM1,25H2V26H1zM2,25H3V26H2zM4,25H5V26H4zM6,25H7V26H6zM7,25H8V26H7zM8,25H9V26H8zM9,25H10V26H9zM12,25H13V26H12zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM19,25H20V26H19zM21,25H22V26H21zM26,25H27V26H26zM28,25H29V26H28zM30,25H31V26H30zM31,25H32V26H31zM34,25H35V26H34zM39,25H40V26H39zM40,25H41V26H40zM41,25H42V26H41zM1,26H2V27H1zM2,26H3V27H2zM4,26H5V27H4zM5,26H6V27H5zM9,26H10V27H9zM12,26H13V27H12zM14,26H15V27H14zM15,26H16V27H15zM16,26H17V27H16zM17,26H18V27H17zM20,26H21V27H20zM22,26H23V27H22zM23,26H24V27H23zM24,26H25V27H24zM25,26H26V27H25zM27,26H28V27H27zM29,26H30V27H29zM31,26H32V27H31zM32,26H33V27H32zM35,26H36V27H35zM36,26H37V27H36zM37,26H38V27H37zM38,26H39V27H38zM41,26H42V27H41zM2,27H3V28H2zM5,27H6V28H5zM7,27H8V28H7zM9,27H10V28H9zM13,27H14V28H13zM14,27H15V28H14zM15,27H16V28H15zM16,27H17V28H16zM17,27H18V28H17zM21,27H22V28H21zM27,27H28V28H27zM28,27H29V28H28zM29,27H30V28H29zM30,27H31V28H30zM31,27H32V28H31zM33,27H34V28H33zM36,27H37V28H36zM37,27H38V28H37zM40,27H41V28H40zM2,28H3V29H2zM3,28H4V29H3zM9,28H10V29H9zM10,28H11V29H10zM12,28H13V29H12zM13,28H14V29H13zM16,28H17V29H16zM17,28H18V29H17zM20,28H21V29H20zM21,28H22V29H21zM22,28H23V29H22zM25,28H26V29H25zM28,28H29V29H28zM29,28H30V29H29zM31,28H32V29H31zM32,28H33V29H32zM33,28H34V29H33zM36,28H37V29H36zM38,28H39V29H38zM1,29H2V30H1zM2,29H3V30H2zM4,29H5V30H4zM5,29H6V30H5zM7,29H8V30H7zM9,29H10V30H9zM10,29H11V30H10zM15,29H16V30H15zM16,29H17V30H16zM17,29H18V30H17zM18,29H19V30H18zM19,29H20V30H19zM21,29H22V30H21zM25,29H26V30H25zM26,29H27V30H26zM27,29H28V30H27zM29,29H30V30H29zM30,29H31V30H30zM32,29H33V30H32zM33,29H34V30H33zM34,29H35V30H34zM36,29H37V30H36zM38,29H39V30H38zM39,29H40V30H39zM1,30H2V31H1zM3,30H4V31H3zM4,30H5V31H4zM6,30H7V31H6zM8,30H9V31H8zM11,30H12V31H11zM12,30H13V31H12zM13,30H14V31H13zM15,30H16V31H15zM17,30H18V31H17zM22,30H23V31H22zM26,30H27V31H26zM28,30H29V31H28zM31,30H32V31H31zM32,30H33V31H32zM35,30H36V31H35zM36,30H37V31H36zM37,30H38V31H37zM38,30H39V31H38zM41,30H42V31H41zM1,31H2V32H1zM3,31H4V32H3zM4,31H5V32H4zM7,31H8V32H7zM8,31H9V32H8zM9,31H10V32H9zM10,31H11V32H10zM13,31H14V32H13zM14,31H15V32H14zM15,31H16V32H15zM17,31H18V32H17zM19,31H20V32H19zM21,31H22V32H21zM24,31H25V32H24zM25,31H26V32H25zM26,31H27V32H26zM27,31H28V32H27zM28,31H29V32H28zM29,31H30V32H29zM34,31H35V32H34zM35,31H36V32H35zM36,31H37V32H36zM37,31H38V32H37zM40,31H41V32H40zM1,32H2V33H1zM3,32H4V33H3zM4,32H5V33H4zM11,32H12V33H11zM12,32H13V33H12zM14,32H15V33H14zM16,32H17V33H16zM22,32H23V33H22zM24,32H25V33H24zM28,32H29V33H28zM32,32H33V33H32zM34,32H35V33H34zM35,32H36V33H35zM36,32H37V33H36zM37,32H38V33H37zM38,32H39V33H38zM40,32H41V33H40zM41,32H42V33H41zM1,33H2V34H1zM5,33H6V34H5zM7,33H8V34H7zM9,33H10V34H9zM17,33H18V34H17zM18,33H19V34H18zM19,33H20V34H19zM22,33H23V34H22zM23,33H24V34H23zM24,33H25V34H24zM25,33H26V34H25zM26,33H27V34H26zM28,33H29V34H28zM29,33H30V34H29zM30,33H31V34H30zM31,33H32V34H31zM33,33H34V34H33zM34,33H35V34H34zM35,33H36V34H35zM36,33H37V34H36zM37,33H38V34H37zM39,33H40V34H39zM40,33H41V34H40zM9,34H10V35H9zM10,34H11V35H10zM11,34H12V35H11zM17,34H18V35H17zM19,34H20V35H19zM20,34H21V35H20zM21,34H22V35H21zM30,34H31V35H30zM32,34H33V35H32zM33,34H34V35H33zM37,34H38V35H37zM38,34H39V35H38zM41,34H42V35H41zM1,35H2V36H1zM2,35H3V36H2zM3,35H4V36H3zM4,35H5V36H4zM5,35H6V36H5zM6,35H7V36H6zM7,35H8V36H7zM10,35H11V36H10zM11,35H12V36H11zM13,35H14V36H13zM14,35H15V36H14zM15,35H16V36H15zM16,35H17V36H16zM19,35H20V36H19zM21,35H22V36H21zM23,35H24V36H23zM28,35H29V36H28zM30,35H31V36H30zM32,35H33V36H32zM33,35H34V36H33zM35,35H36V36H35zM37,35H38V36H37zM38,35H39V36H38zM40,35H41V36H40zM1,36H2V37H1zM7,36H8V37H7zM9,36H10V37H9zM10,36H11V37H10zM13,36H14V37H13zM15,36H16V37H15zM27,36H28V37H27zM30,36H31V37H30zM31,36H32V37H31zM33,36H34V37H33zM37,36H38V37H37zM38,36H39V37H38zM1,37H2V38H1zM3,37H4V38H3zM4,37H5V38H4zM5,37H6V38H5zM7,37H8V38H7zM9,37H10V38H9zM11,37H12V38H11zM12,37H13V38H12zM13,37H14V38H13zM16,37H17V38H16zM19,37H20V38H19zM21,37H22V38H21zM22,37H23V38H22zM23,37H24V38H23zM28,37H29V38H28zM33,37H34V38H33zM34,37H35V38H34zM35,37H36V38H35zM36,37H37V38H36zM37,37H38V38H37zM39,37H40V38H39zM1,38H2V39H1zM3,38H4V39H3zM4,38H5V39H4zM5,38H6V39H5zM7,38H8V39H7zM9,38H10V39H9zM11,38H12V39H11zM12,38H13V39H12zM14,38H15V39H14zM15,38H16V39H15zM16,38H17V39H16zM17,38H18V39H17zM20,38H21V39H20zM22,38H23V39H22zM24,38H25V39H24zM27,38H28V39H27zM30,38H31V39H30zM31,38H32V39H31zM33,38H34V39H33zM34,38H35V39H34zM36,38H37V39H36zM1,39H2V40H1zM3,39H4V40H3zM4,39H5V40H4zM5,39H6V40H5zM7,39H8V40H7zM9,39H10V40H9zM10,39H11V40H10zM17,39H18V40H17zM21,39H22V40H21zM23,39H24V40H23zM27,39H28V40H27zM28,39H29V40H28zM29,39H30V40H29zM30,39H31V40H30zM34,39H35V40H34zM35,39H36V40H35zM36,39H37V40H36zM37,39H38V40H37zM38,39H39V40H38zM39,39H40V40H39zM1,40H2V41H1zM7,40H8V41H7zM11,40H12V41H11zM13,40H14V41H13zM18,40H19V41H18zM19,40H20V41H19zM21,40H22V41H21zM22,40H23V41H22zM27,40H28V41H27zM29,40H30V41H29zM31,40H32V41H31zM32,40H33V41H32zM35,40H36V41H35zM37,40H38V41H37zM38,40H39V41H38zM40,40H41V41H40zM1,41H2V42H1zM2,41H3V42H2zM3,41H4V42H3zM4,41H5V42H4zM5,41H6V42H5zM6,41H7V42H6zM7,41H8V42H7zM9,41H10V42H9zM10,41H11V42H10zM11,41H12V42H11zM14,41H15V42H14zM15,41H16V42H15zM16,41H17V42H16zM17,41H18V42H17zM19,41H20V42H19zM21,41H22V42H21zM26,41H27V42H26zM30,41H31V42H30zM32,41H33V42H32zM36,41H37V42H36zM37,41H38V42H37zM39,41H40V42H39z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div>
+          <a class="cta-btn" href="https://wa.me/5511996798056" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg>+55 11 99679-8056</a>
+        </div>
+      </div>
+      <div class="cta-box phase-box">
+        <div class="ph-head"><span class="ph-badge">Fase 02</span><span class="cta-eyebrow" style="margin:0">Desenvolvimento</span></div>
+        <h3>Elaboração da BIA REQ</h3>
+        <p>Desenhar os mapas da jornada com as regras de negócio e os workflows (WFs), e enviar para aprovação e validação de escopo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Projeção ilustrativa · Próximos Passos · Enel × Blip · Julho 2026
+    <br><span class="f-marks"><span>Discovery</span><span>BIA &amp; escopo</span><span>Go-live faseado</span></span>
+  </div>
+</section>
+
 
 <script>
 
@@ -2257,6 +2326,46 @@ document.querySelectorAll('.j-btn').forEach(btn=>{
     document.getElementById(btn.dataset.journey).classList.add('active');
   });
 });
+
+// Calculadora (aba 04)
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var den=$('c_den'),conv=$('c_conv'),cost=$('c_cost'),improd=$('c_improd'),red=$('c_red');
+  if(!den) return;
+  var DXS=3,DAYS=30;
+  function brl(n){return 'R$ '+Math.round(n).toLocaleString('pt-BR');}
+  function big(n){return n>=1e6 ? 'R$ '+(n/1e6).toLocaleString('pt-BR',{maximumFractionDigits:2})+' mi'
+                               : 'R$ '+Math.round(n/1000).toLocaleString('pt-BR')+' mil';}
+  function calc(){
+    var d=+den.value, cv=+conv.value/100, c=+cost.value, im=+improd.value/100, rd=+red.value/100;
+    var os=Math.round(d*DXS*DAYS*cv);
+    var improdAtual=Math.round(os*im);
+    var custo=improdAtual*c;
+    var evit=Math.round(improdAtual*rd);
+    var ecoMes=evit*c, ecoAno=ecoMes*12, depois=improdAtual-evit;
+    $('v_den').textContent=d;
+    $('v_conv').textContent=conv.value+'%';
+    $('v_cost').textContent=brl(c);
+    $('v_improd').textContent=improd.value+'%';
+    $('v_red').textContent=red.value+'%';
+    $('r_mes').textContent=brl(ecoMes);
+    $('r_evit').textContent='+'+evit.toLocaleString('pt-BR')+' visitas evitadas/mês';
+    $('r_ano').textContent=brl(ecoAno);
+    $('r_range').textContent='faixa conservadora–otimista: '+big(ecoAno*0.75)+' – '+big(ecoAno*1.25);
+    $('s_os').textContent=os.toLocaleString('pt-BR');
+    $('s_improd').textContent=improdAtual.toLocaleString('pt-BR');
+    $('s_evit').textContent=evit.toLocaleString('pt-BR');
+    $('s_cost').textContent=brl(custo);
+    var mx=Math.max(improdAtual,1);
+    $('bar_before').style.width='100%';
+    $('bar_after').style.width=(depois/mx*100)+'%';
+    $('bar_before_v').textContent=improdAtual.toLocaleString('pt-BR')+' improd.';
+    $('bar_after_v').textContent=depois.toLocaleString('pt-BR')+' improd.';
+  }
+  [den,conv,cost,improd,red].forEach(function(el){el.addEventListener('input',calc);});
+  calc();
+})();
+
 </script>
 </body>
 </html>
